@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SARTORI Energy | Ingeniería Eléctrica de Alta y Extra Alta Tensión</title>
+  <meta name="description" content="SARTORI Energy ofrece soluciones especializadas de ingeniería eléctrica para infraestructura de estaciones transformadoras de alta y extra alta tensión. Tecnologías GIS y AIS. Contratistas EPC.">
+  <meta name="keywords" content="SARTORI Energy, GIS, AIS, subestaciones, alta tensión, extra alta tensión, ingeniería eléctrica, EPC, commissioning">
+  <link rel="alternate" hreflang="es" href="./index.html">
+  <link rel="alternate" hreflang="en" href="../index.html">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
+
+  <!-- Tailwind CSS Stylesheet -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Favicons and PWA Icons -->
+  <link rel="icon" type="image/png" href="../assets/images/logo.png">
+  <link rel="apple-touch-icon" href="../assets/images/logo.png">
+
+  <style>
+    /* ========================================
+       CUSTOM STYLES & ANIMATIONS
+       ======================================== */
+
+    body {
+      font-family: 'Lato', sans-serif;
+    }
+
+    /* Hero animated gradient background */
+    .hero-bg {
+      background: linear-gradient(135deg, #00072D 0%, #051650 40%, #0A2472 70%, #051650 100%);
+      background-size: 300% 300%;
+      animation: heroGradient 12s ease-in-out infinite;
+    }
+
+    @keyframes heroGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes tracking-in-expand {
+      0% { letter-spacing: -0.5em; opacity: 0; filter: blur(10px); }
+      40% { opacity: 0.6; }
+      100% { opacity: 1; filter: blur(0); }
+    }
+    /* Delayed fade-in for tagline */
+    @keyframes fadeInDelayed {
+      0% { opacity: 0; transform: translateY(12px); filter: blur(4px); }
+      100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+    .animate-fade-in-delayed {
+      animation: fadeInDelayed 1.2s cubic-bezier(0.25, 1, 0.5, 1) 1.2s both;
+    }
+
+    /* Modal Animation */
+    .modal-active {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+    .modal-active .modal-container {
+      transform: scale(1) !important;
+    }
+
+    /* Animated line for hero paragraphs */
+    @keyframes lineExpand {
+      0% { transform: scaleY(0); }
+      100% { transform: scaleY(1); }
+    }
+    .animate-line-expand {
+      animation: lineExpand 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.8s both;
+    }
+    
+    @keyframes watermarkFade {
+      0% { opacity: 0; transform: translateY(15px) scale(0.95); }
+      100% { opacity: 0.12; transform: translateY(0) scale(1); }
+    }
+    .animate-watermark {
+      animation: watermarkFade 2.2s cubic-bezier(0.25, 1, 0.5, 1) 0.5s both;
+    }
+    
+    @keyframes fadeInLeft {
+      0% { opacity: 0; transform: translateX(-15px); filter: blur(2px); }
+      100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+    }
+    .animate-fade-in-left {
+      animation: fadeInLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) both;
+    }
+
+    .animate-tracking-expand {
+      animation: tracking-in-expand 1.6s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    }
+    
+    /* Radial glow for elements */
+    .glow-hover {
+      transition: all 0.3s ease;
+    }
+    .glow-hover:hover {
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.35);
+      border-color: rgba(245, 158, 11, 0.6);
+      transform: scale(1.03);
+    }
+
+    /* Grid overlay for industrial feel */
+    .grid-overlay {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Fade-up animation */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .animate-fade-up {
+      animation: fadeUp 0.8s ease-out forwards;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    /* Scroll-triggered animations */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    [data-animate].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger delays */
+    .delay-100 { transition-delay: 100ms; animation-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; animation-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; animation-delay: 300ms; }
+    .delay-400 { transition-delay: 400ms; animation-delay: 400ms; }
+    .delay-500 { transition-delay: 500ms; animation-delay: 500ms; }
+    .delay-600 { transition-delay: 600ms; animation-delay: 600ms; }
+    .delay-700 { transition-delay: 700ms; animation-delay: 700ms; }
+    .delay-800 { transition-delay: 800ms; animation-delay: 800ms; }
+
+    /* Header scroll state */
+    .header-scrolled {
+      background-color: rgba(0, 7, 45, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Service card hover */
+    .service-card {
+      transition: all 0.3s ease;
+      border-left: 4px solid #2A7B88;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border-left-color: #F59E0B;
+    }
+
+    .service-card .service-icon {
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+      color: #F59E0B;
+      transform: scale(1.1);
+    }
+
+    /* Project filter button */
+    .filter-btn {
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn.active {
+      background-color: #F59E0B;
+      color: #00072D;
+      font-weight: 700;
+    }
+
+    /* Project row animation */
+    .project-row {
+      transition: all 0.3s ease;
+    }
+
+    .project-row:hover {
+      background-color: rgba(42, 123, 136, 0.05);
+    }
+
+    /* Country badge colors */
+    .badge-chile { background-color: #0A2472; color: white; }
+    .badge-colombia { background-color: #2A7B88; color: white; }
+    .badge-argentina { background-color: #F59E0B; color: #00072D; }
+
+    /* Mobile menu */
+    .mobile-menu {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .mobile-menu.hidden {
+      transform: translateX(100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* Pulse animation for CTA */
+    @keyframes pulse-amber {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+      50% { box-shadow: 0 0 0 12px rgba(245, 158, 11, 0); }
+    }
+
+    .pulse-cta:hover {
+      animation: pulse-amber 1.5s ease-in-out infinite;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #00072D; }
+    ::-webkit-scrollbar-thumb { background: #2A7B88; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #F59E0B; }
+
+    /* Counter animation */
+    .counter-value {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+</head>
+
+<body class="font-body bg-white text-gray-800 antialiased overflow-x-hidden">
+
+  <!-- ========================================
+       HEADER / NAVIGATION
+       ======================================== -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="#inicio" class="flex items-center gap-3 group">
+          <img src="../assets/images/logo.png" alt="SARTORI Energy Logo" class="h-12 w-auto flex-shrink-0">
+          <div class="flex flex-col">
+            <span class="font-heading font-extrabold text-lg text-white tracking-tight leading-tight">SARTORI</span>
+            <span class="font-heading font-semibold text-xs text-sartori-teal-light tracking-[0.2em] uppercase leading-tight">ENERGY</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="#inicio" class="text-white/80 hover:text-white font-body text-sm tracking-wide transition-colors duration-200">Inicio</a>
+          <a href="#servicios" class="text-white/80 hover:text-white font-body text-sm tracking-wide transition-colors duration-200">Servicios</a>
+          <a href="#proyectos" class="text-white/80 hover:text-white font-body text-sm tracking-wide transition-colors duration-200">Proyectos</a>
+          <a href="#equipo" class="text-white/80 hover:text-white font-body text-sm tracking-wide transition-colors duration-200">Equipo</a>
+          <a href="#mision-vision" class="text-white/80 hover:text-white font-body text-sm tracking-wide transition-colors duration-200">Misión &amp; Visión</a>
+        </div>
+
+        <!-- Language Selector + CTA -->
+        <div class="hidden lg:flex items-center gap-4">
+          <!-- Language Switcher -->
+          <div class="flex items-center gap-1 border border-white/20 rounded-full px-3 py-1.5">
+            <span class="text-white font-body text-sm font-bold"><span class="fi fi-es rounded-sm mr-1"></span> ES</span>
+            <span class="text-white/30 mx-1">|</span>
+            <a href="../index.html" class="text-white/50 hover:text-white font-body text-sm transition-colors duration-200"><span class="fi fi-gb rounded-sm mr-1 opacity-80 hover:opacity-100 transition-opacity"></span> EN</a>
+          </div>
+          <!-- CTA -->
+          <a href="#contacto" class="bg-sartori-amber hover:bg-sartori-amber-hover text-sartori-navy-deep font-heading font-bold text-sm px-6 py-2.5 rounded transition-all duration-300 hover:shadow-lg hover:shadow-sartori-amber/25 pulse-cta">
+            Contactar
+          </a>
+        </div>
+
+        <!-- Mobile Language Selector -->
+        <div class="flex lg:hidden items-center gap-1 border border-white/20 rounded-full px-2.5 py-1 text-xs mr-1 bg-white/[0.03]">
+          <span class="text-white font-bold"><span class="fi fi-es rounded-sm mr-0.5"></span> ES</span>
+          <span class="text-white/20">|</span>
+          <a href="../index.html" class="text-white/60 hover:text-white transition-colors"><span class="fi fi-gb rounded-sm mr-0.5 opacity-80 hover:opacity-100 transition-opacity"></span> EN</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Abrir menú">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12h18M3 6h18M3 18h18"/>
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu hidden lg:hidden fixed inset-0 top-20 bg-sartori-navy-deep/98 backdrop-blur-xl z-40">
+      <div class="flex flex-col items-center justify-center gap-8 h-full">
+        <a href="#inicio" class="mobile-link text-white font-heading font-semibold text-2xl">Inicio</a>
+        <a href="#servicios" class="mobile-link text-white font-heading font-semibold text-2xl">Servicios</a>
+        <a href="#proyectos" class="mobile-link text-white font-heading font-semibold text-2xl">Proyectos</a>
+        <a href="#equipo" class="mobile-link text-white font-heading font-semibold text-2xl">Equipo</a>
+        <a href="#mision-vision" class="mobile-link text-white font-heading font-semibold text-2xl">Misión &amp; Visión</a>
+        <a href="#contacto" class="bg-sartori-amber text-sartori-navy-deep font-heading font-bold text-lg px-8 py-3 rounded mt-4">Contactar</a>
+        <div class="flex items-center gap-4 mt-4">
+          <span class="text-white font-body font-bold"><span class="fi fi-es rounded-sm mr-1"></span> ES</span>
+          <a href="../index.html" class="text-white/50 hover:text-white font-body"><span class="fi fi-gb rounded-sm mr-1 opacity-80 hover:opacity-100 transition-opacity"></span> EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ========================================
+       HERO SECTION
+       ======================================== -->
+  <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
+    <!-- Video Background -->
+    <div class="absolute inset-0 z-0 bg-sartori-navy-deep">
+      <video id="hero-video" autoplay loop muted playsinline preload="none" poster="../assets/images/16 - USAR PARA FONDO GENERICO.jpg" class="w-full h-full object-cover opacity-25">
+        <source src="../assets/videos/VIDEO FAST MOTION FRONT WEB.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-r from-sartori-navy-deep via-sartori-navy-deep/75 to-transparent"></div>
+    </div>
+    <!-- Grid Overlay -->
+    <div class="absolute inset-0 grid-overlay opacity-25 z-0"></div>
+
+    <!-- Large Logo Watermark on the Left (Pure White Watermark behind text, z-0) -->
+    <!-- Large Logo Watermark on the Left (Pure White Watermark behind text, z-0) -->
+    <div class="absolute left-[6%] lg:left-[8%] top-[28%] w-[220px] lg:w-[280px] hidden md:block pointer-events-none z-0 select-none animate-watermark">
+      <img src="../assets/images/logo.png" alt="Sartori Logo Watermark" class="w-full h-auto" style="filter: brightness(0) invert(1);">
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
+      <div class="max-w-3xl">
+        <!-- H1 -->
+        <!-- H1 -->
+        <h1 class="font-heading font-black text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl text-white tracking-tighter animate-tracking-expand whitespace-nowrap" style="text-shadow: 0 10px 30px rgba(0,7,45,0.85);">
+          SARTORI <span class="text-sartori-amber font-light">ENERGY</span>
+        </h1>
+
+        <!-- Tagline -->
+        <p class="mt-5 font-serif italic text-lg md:text-xl lg:text-2xl text-sartori-teal-light tracking-wide animate-fade-in-delayed" style="text-shadow: 0 2px 10px rgba(0,7,45,0.6);">
+          Su proyecto de energía, <span class="text-sartori-amber font-semibold">nuestra misión</span>
+        </p>
+
+        <!-- Subtitle -->
+        <p class="mt-8 font-body text-lg md:text-xl text-white/85 leading-relaxed max-w-2xl animate-fade-up delay-200">
+          Soluciones especializadas de ingeniería eléctrica para todo el espectro en infraestructura de estaciones transformadoras de <strong class="text-white font-bold">alta y extra alta tensión.</strong>
+        </p>
+
+        <p class="mt-4 font-body text-base text-white/65 leading-relaxed max-w-2xl animate-fade-up delay-300">
+          Ejecución técnica rigurosa y compromiso con los más altos estándares internacionales para proyectos complejos de transmisión de energía y subestaciones.
+        </p>
+
+        <!-- Technology Badges -->
+        <div class="mt-8 flex flex-wrap gap-3 animate-fade-up delay-400">
+          <a href="#servicios" class="inline-flex items-center gap-2 px-5 py-2.5 border border-sartori-amber/30 bg-sartori-amber/5 text-sartori-amber font-heading font-semibold text-sm rounded-full backdrop-blur-sm hover:scale-105 hover:bg-sartori-amber/15 hover:border-sartori-amber/60 hover:shadow-[0_0_20px_rgba(245,158,11,0.25)] transition-all duration-300 group/badge">
+            <svg class="w-4 h-4 text-sartori-amber group-hover/badge:rotate-12 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Tecnología GIS</span>
+            <span class="text-xs text-sartori-amber/60 font-body font-normal group-hover/badge:text-sartori-amber/90 transition-colors">(Gas-Insulated Switchgear)</span>
+          </a>
+          <a href="#servicios" class="inline-flex items-center gap-2 px-5 py-2.5 border border-sartori-teal/30 bg-sartori-teal/5 text-sartori-teal-light font-heading font-semibold text-sm rounded-full backdrop-blur-sm hover:scale-105 hover:bg-sartori-teal/15 hover:border-sartori-teal/60 hover:shadow-[0_0_20px_rgba(42,123,136,0.25)] transition-all duration-300 group/badge2">
+            <svg class="w-4 h-4 text-sartori-teal-light group-hover/badge2:rotate-12 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Tecnología AIS</span>
+            <span class="text-xs text-sartori-teal-light/60 font-body font-normal group-hover/badge2:text-sartori-teal-light/90 transition-colors">(Air-Insulated Switchgear)</span>
+          </a>
+        </div>
+
+        <!-- Micro-text -->
+        <p class="mt-6 text-white/40 font-body text-sm tracking-wide animate-fade-up delay-500">
+          Proveedor especializado y de confianza para empresas de servicios públicos, contratistas EPC y fabricantes líderes de tecnología eléctrica.
+        </p>
+
+        <!-- CTA -->
+        <a href="#servicios" class="mt-10 inline-flex items-center gap-2 bg-sartori-amber hover:bg-sartori-amber-hover text-sartori-navy-deep font-heading font-bold text-sm px-8 py-4 rounded transition-all duration-300 hover:shadow-xl hover:shadow-sartori-amber/20 animate-fade-up delay-600 pulse-cta tracking-wide uppercase">
+          Conocer Capacidades Técnicas
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in delay-800">
+      <span class="text-white/30 font-body text-xs tracking-widest uppercase">Scroll</span>
+      <div class="w-px h-8 bg-gradient-to-b from-white/30 to-transparent animate-bounce"></div>
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       TRUST BAR (4 PILARES)
+       ======================================== -->
+  <!-- ========================================
+       TRUST BAR (4 PILARES)
+       ======================================== -->
+  <section class="relative bg-sartori-navy-deep border-y border-white/5 overflow-hidden">
+    <!-- Subtle Top Glow Line -->
+    <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-sartori-teal/20 to-transparent"></div>
+    
+    <div class="max-w-7xl mx-auto px-0">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-white/5">
+        <!-- Pilar 1: Seguridad -->
+        <div data-animate class="flex flex-col p-8 group hover:bg-white/[0.01] transition-all duration-300 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-sartori-teal to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
+
+          <h3 class="font-heading font-extrabold text-white text-sm tracking-[0.15em] uppercase">SEGURIDAD</h3>
+          <p class="font-body text-xs text-white/50 mt-1">en cada proyecto</p>
+        </div>
+        <!-- Pilar 2: Precisión Técnica -->
+        <div data-animate class="flex flex-col p-8 group hover:bg-white/[0.01] transition-all duration-300 relative overflow-hidden delay-100">
+          <div class="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-sartori-teal to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
+
+          <h3 class="font-heading font-extrabold text-white text-sm tracking-[0.15em] uppercase">PRECISIÓN TÉCNICA</h3>
+          <p class="font-body text-xs text-white/50 mt-1">en cada detalle</p>
+        </div>
+        <!-- Pilar 3: Eficiencia -->
+        <div data-animate class="flex flex-col p-8 group hover:bg-white/[0.01] transition-all duration-300 relative overflow-hidden delay-200">
+          <div class="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-sartori-teal to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
+
+          <h3 class="font-heading font-extrabold text-white text-sm tracking-[0.15em] uppercase">EFICIENCIA</h3>
+          <p class="font-body text-xs text-white/50 mt-1">que genera valor</p>
+        </div>
+        <!-- Pilar 4: Experiencia Global -->
+        <div data-animate class="flex flex-col p-8 group hover:bg-white/[0.01] transition-all duration-300 relative overflow-hidden delay-300">
+          <div class="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-sartori-teal to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
+
+          <h3 class="font-heading font-extrabold text-white text-sm tracking-[0.15em] uppercase">EXPERIENCIA GLOBAL</h3>
+          <p class="font-body text-xs text-white/50 mt-1">compromiso local</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       QUOTE SECTION
+       ======================================== -->
+  <section class="relative bg-gradient-to-r from-sartori-navy-deep via-sartori-navy to-sartori-navy-deep py-16 lg:py-20 overflow-hidden">
+    <!-- Background Texture -->
+    <div class="absolute inset-0 z-0 opacity-15">
+      <img src="../assets/images/16 - USAR PARA FONDO GENERICO.jpg" alt="Background Texture" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-sartori-navy-deep/40"></div>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
+      <svg class="w-10 h-10 mx-auto mb-6 text-sartori-amber/40" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+      <p data-animate class="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-white leading-tight italic delay-100">
+        Conectamos energía.<br>
+        Potenciamos soluciones.<br>
+        <span class="text-sartori-amber">Construimos el futuro.</span>
+      </p>
+      <div class="mt-6 w-16 h-0.5 bg-sartori-amber/40 mx-auto"></div>
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       SERVICES SECTION
+       ======================================== -->
+  <section id="servicios" class="py-20 lg:py-28 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16" data-animate>
+        <p class="font-heading font-semibold text-sm text-sartori-teal tracking-[0.15em] uppercase mb-3">Nuestros Servicios</p>
+        <h2 class="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-sartori-navy-deep tracking-tight">
+          Servicios Especializados
+        </h2>
+        <p class="mt-6 font-body text-lg text-gray-500 leading-relaxed">
+          Instalación, montaje, ensayos, puesta en servicio y asistencia in situ para sistemas GIS y AIS en subestaciones de alta y extra alta tensión en todo el continente americano.
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+        <!-- Card 1: Montaje e Instalación -->
+        <div data-animate data-service-id="1" class="service-card cursor-pointer bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98] group transition-all duration-300 flex flex-col h-full">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../assets/images/01 - USAR - PARA SERVICIOS.jpg" alt="GIS and AIS Assembly and Installation" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
+            <div class="absolute top-4 left-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+          </div>
+          <div class="p-6 lg:p-8 flex-grow flex flex-col">
+            <h3 class="font-heading font-bold text-xl text-sartori-navy-deep mb-4">Montaje e Instalación de GIS y AIS</h3>
+            <p class="font-body text-gray-500 leading-relaxed text-[0.938rem] flex-grow">
+              Proveemos servicios integrales en redes de transporte y distribución de energía como así también en distintos tipos de industrias. Especialistas con capacitaciones impartidas por fabricantes del sector en tecnologías de media, alta y extra alta tensión en distintos modelos.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: Auditorías Técnicas -->
+        <div data-animate data-service-id="2" class="service-card cursor-pointer bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98] group transition-all duration-300 flex flex-col h-full delay-100">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../assets/images/03 - USAR PARA SERVICIOS.jpg" alt="Technical Audits and Asset Assessments" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
+            <div class="absolute top-4 left-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+            </div>
+          </div>
+          <div class="p-6 lg:p-8 flex-grow flex flex-col">
+            <h3 class="font-heading font-bold text-xl text-sartori-navy-deep mb-4">Auditorías Técnicas y Evaluación de Activos</h3>
+            <p class="font-body text-gray-500 leading-relaxed text-[0.938rem] flex-grow">
+              Diagnósticos detallados, análisis de riesgos, comparativas de rendimiento y recomendaciones estratégicas para mejorar la fiabilidad, la seguridad y la eficiencia operativa de instalaciones hidroeléctricas y subestaciones, en plena conformidad con las normas IEC, IEEE y ANSI.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: Puesta en Servicio -->
+        <div data-animate data-service-id="3" class="service-card cursor-pointer bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98] group transition-all duration-300 flex flex-col h-full delay-200">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../assets/images/04 - USAR PARA SERVICIOS.jpg" alt="Commissioning and Energization" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
+            <div class="absolute top-4 left-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+          </div>
+          <div class="p-6 lg:p-8 flex-grow flex flex-col">
+            <h3 class="font-heading font-bold text-xl text-sartori-navy-deep mb-4">Puesta en Servicio y Energización</h3>
+            <p class="font-body text-gray-500 leading-relaxed text-[0.938rem] flex-grow">
+              Servicios integrales de puesta en servicio, pruebas y conexión a red para subestaciones de hasta <strong class=\"text-sartori-navy-deep\">500 kV</strong>, incluyendo sistemas GIS de corriente alterna (CA) y corriente continua (CC) destinados a aplicaciones de metro y ferrocarril.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4: Protección y Control -->
+        <div data-animate data-service-id="4" class="service-card cursor-pointer bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98] group transition-all duration-300 flex flex-col h-full delay-300">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../assets/images/06 - USAR PARA SERVICIOS.jpg" alt="Protection and Control Systems" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
+            <div class="absolute top-4 left-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+          </div>
+          <div class="p-6 lg:p-8 flex-grow flex flex-col">
+            <h3 class="font-heading font-bold text-xl text-sartori-navy-deep mb-4">Sistemas de Protección y Control</h3>
+            <p class="font-body text-gray-500 leading-relaxed text-[0.938rem] flex-grow">
+              Instalación, configuración, pruebas y parametrización de sistemas de protección y control. Garantizamos una coordinación óptima de los relés, selectividad del sistema, gestión de fallos y la fiabilidad de la red.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 5: Pruebas y Verificación -->
+        <div data-animate data-service-id="5" class="service-card cursor-pointer bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98] group transition-all duration-300 flex flex-col h-full delay-400">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../assets/images/07 - USAR PARA SERVICIOS.jpg" alt="Testing and Verification" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
+            <div class="absolute top-4 left-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+          </div>
+          <div class="p-6 lg:p-8 flex-grow flex flex-col">
+            <h3 class="font-heading font-bold text-xl text-sartori-navy-deep mb-4">Pruebas y Verificación</h3>
+            <ul class="font-body text-gray-500 text-[0.938rem] space-y-2 flex-grow">
+              <li class=\"flex items-start gap-2\"><span class=\"text-sartori-teal mt-1 flex-shrink-0\">▸</span><span>Pruebas funcionales y dieléctricas de transformadores de medida (TC y TT)</span></li><li class=\"flex items-start gap-2\"><span class=\"text-sartori-teal mt-1 flex-shrink-0\">▸</span><span>Instalación y puesta en servicio de interruptores de media y alta tensión</span></li><li class=\"flex items-start gap-2\"><span class=\"text-sartori-teal mt-1 flex-shrink-0\">▸</span><span>Verificación de seccionadores e interruptores de puesta a tierra</span></li><li class=\"flex items-start gap-2\"><span class=\"text-sartori-teal mt-1 flex-shrink-0\">▸</span><span>Mantenimiento preventivo y correctivo</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 6: Sincronización y Control -->
+        <div data-animate data-service-id="6" class="service-card cursor-pointer bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98] group transition-all duration-300 flex flex-col h-full delay-500">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../assets/images/09 - USAR PARA SERVICIOS.jpg" alt="Synchronization and Control Systems" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
+            <div class="absolute top-4 left-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+            </div>
+          </div>
+          <div class="p-6 lg:p-8 flex-grow flex flex-col">
+            <h3 class="font-heading font-bold text-xl text-sartori-navy-deep mb-4">Sistemas de Sincronización y Control</h3>
+            <p class="font-body text-gray-500 leading-relaxed text-[0.938rem] flex-grow">
+              Plataformas avanzadas de sincronización automática de interruptores mediante metodologías probadas para optimizar la estabilidad del sistema, maximizar la disponibilidad de los activos y garantizar una operación segura de la infraestructura.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       PROJECTS / PORTFOLIO SECTION
+       ======================================== -->
+  <section id="proyectos" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12" data-animate>
+        <p class="font-heading font-semibold text-sm text-sartori-teal tracking-[0.15em] uppercase mb-3">Portfolio</p>
+        <h2 class="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-sartori-navy-deep tracking-tight">
+          Proyectos Ejecutados
+        </h2>
+        <p class="mt-6 font-body text-lg text-gray-500 leading-relaxed">
+          Soluciones eléctricas integrales en subestaciones y sistemas de alta y extra alta tensión con los más altos estándares de calidad, seguridad y eficiencia.
+        </p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap justify-center gap-2 mb-10" data-animate>
+        <button data-filter="all" class="filter-btn active px-5 py-2 rounded-full font-heading font-semibold text-sm border border-sartori-navy/20 text-sartori-navy-deep hover:bg-sartori-amber hover:text-sartori-navy-deep hover:border-sartori-amber transition-all">
+          Todos
+        </button>
+        <button data-filter="chile" class="filter-btn px-5 py-2 rounded-full font-heading font-semibold text-sm border border-sartori-navy/20 text-sartori-navy-deep hover:bg-sartori-amber hover:text-sartori-navy-deep hover:border-sartori-amber transition-all">
+          <span class="fi fi-cl rounded-sm mr-1 shadow-sm"></span> Chile
+        </button>
+        <button data-filter="colombia" class="filter-btn px-5 py-2 rounded-full font-heading font-semibold text-sm border border-sartori-navy/20 text-sartori-navy-deep hover:bg-sartori-amber hover:text-sartori-navy-deep hover:border-sartori-amber transition-all">
+          <span class="fi fi-co rounded-sm mr-1 shadow-sm"></span> Colombia
+        </button>
+        <button data-filter="argentina" class="filter-btn px-5 py-2 rounded-full font-heading font-semibold text-sm border border-sartori-navy/20 text-sartori-navy-deep hover:bg-sartori-amber hover:text-sartori-navy-deep hover:border-sartori-amber transition-all">
+          <span class="fi fi-ar rounded-sm mr-1 shadow-sm"></span> Argentina
+        </button>
+      </div>
+
+      <!-- Projects Table (Desktop) -->
+      <div class="hidden md:block overflow-hidden rounded-xl border border-gray-200 shadow-sm" data-animate>
+        <table class="w-full text-left">
+          <thead>
+            <tr class="bg-sartori-navy-deep text-white">
+              <th class="px-6 py-4 font-heading font-bold text-sm tracking-wide">Año</th>
+              <th class="px-6 py-4 font-heading font-bold text-sm tracking-wide">Proyecto / Descripción</th>
+              <th class="px-6 py-4 font-heading font-bold text-sm tracking-wide">Capacidad / Tecnología</th>
+              <th class="px-6 py-4 font-heading font-bold text-sm tracking-wide">Ubicación</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <tr class="project-row" data-country="chile" data-year="2024">
+              <td class="px-6 py-4 font-heading font-semibold text-sm text-sartori-navy-deep whitespace-nowrap">2024/2025</td>
+              <td class="px-6 py-4 font-body text-sm text-gray-700">Montaje SE PS1 – 3 Bahías</td>
+              <td class="px-6 py-4"><span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">HV-GIS 110 kV</span></td>
+              <td class="px-6 py-4 font-body text-sm text-gray-600"><span class="fi fi-cl border border-gray-200 rounded-sm mr-1.5 text-base shadow-sm"></span>Tocopilla, Chile</td>
+            </tr>
+            <tr class="project-row bg-gray-50/50" data-country="chile" data-year="2024">
+              <td class="px-6 py-4 font-heading font-semibold text-sm text-sartori-navy-deep whitespace-nowrap">2024/2025</td>
+              <td class="px-6 py-4 font-body text-sm text-gray-700">Montaje SE EB3 – 2 diámetros</td>
+              <td class="px-6 py-4"><span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">HV-GIS 220 kV</span></td>
+              <td class="px-6 py-4 font-body text-sm text-gray-600"><span class="fi fi-cl border border-gray-200 rounded-sm mr-1.5 text-base shadow-sm"></span>Calama, Chile</td>
+            </tr>
+            <tr class="project-row" data-country="colombia" data-year="2023">
+              <td class="px-6 py-4 font-heading font-semibold text-sm text-sartori-navy-deep whitespace-nowrap">2023/2024</td>
+              <td class="px-6 py-4 font-body text-sm text-gray-700">Montaje SE Nueva Cuestecitas – 2 diámetros</td>
+              <td class="px-6 py-4"><span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">HV-GIS 220 kV</span></td>
+              <td class="px-6 py-4 font-body text-sm text-gray-600"><span class="fi fi-co border border-gray-200 rounded-sm mr-1.5 text-base shadow-sm"></span>Cuestecitas, Colombia</td>
+            </tr>
+            <tr class="project-row bg-gray-50/50" data-country="argentina" data-year="2023">
+              <td class="px-6 py-4 font-heading font-semibold text-sm text-sartori-navy-deep whitespace-nowrap">2023</td>
+              <td class="px-6 py-4 font-body text-sm text-gray-700">Commissioning y Puesta en Marcha SE San Luis Norte Wind Power</td>
+              <td class="px-6 py-4"><span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">132/33 kV</span></td>
+              <td class="px-6 py-4 font-body text-sm text-gray-600"><span class="fi fi-ar border border-gray-200 rounded-sm mr-1.5 text-base shadow-sm"></span>San Luis, Argentina</td>
+            </tr>
+            <tr class="project-row" data-country="colombia" data-year="2023">
+              <td class="px-6 py-4 font-heading font-semibold text-sm text-sartori-navy-deep whitespace-nowrap">2023</td>
+              <td class="px-6 py-4 font-body text-sm text-gray-700">Montaje SE Río</td>
+              <td class="px-6 py-4"><span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">HV-GIS 132 kV</span></td>
+              <td class="px-6 py-4 font-body text-sm text-gray-600"><span class="fi fi-co border border-gray-200 rounded-sm mr-1.5 text-base shadow-sm"></span>Barranquilla, Colombia</td>
+            </tr>
+            <tr class="project-row bg-gray-50/50" data-country="colombia" data-year="2023">
+              <td class="px-6 py-4 font-heading font-semibold text-sm text-sartori-navy-deep whitespace-nowrap">2023</td>
+              <td class="px-6 py-4 font-body text-sm text-gray-700">Montaje Ampliaciones SE Oasis <span class="text-xs text-sartori-teal font-semibold">(Sin corte de servicio)</span></td>
+              <td class="px-6 py-4"><span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">HV-GIS 8 132 kV</span></td>
+              <td class="px-6 py-4 font-body text-sm text-gray-600"><span class="fi fi-co border border-gray-200 rounded-sm mr-1.5 text-base shadow-sm"></span>Barranquilla, Colombia</td>
+            </tr>
+            <tr class="project-row" data-country="chile" data-year="2022">
+              <td class="px-6 py-4 font-heading font-semibold text-sm text-sartori-navy-deep whitespace-nowrap">2022</td>
+              <td class="px-6 py-4 font-body text-sm text-gray-700">Montaje Ampliación 2 bahías</td>
+              <td class="px-6 py-4"><span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">HV-GIS 220 kV</span></td>
+              <td class="px-6 py-4 font-body text-sm text-gray-600"><span class="fi fi-cl border border-gray-200 rounded-sm mr-1.5 text-base shadow-sm"></span>Nueva Maitencillo, Chile</td>
+            </tr>
+            <tr class="project-row bg-gray-50/50" data-country="argentina" data-year="2021">
+              <td class="px-6 py-4 font-heading font-semibold text-sm text-sartori-navy-deep whitespace-nowrap">2021</td>
+              <td class="px-6 py-4 font-body text-sm text-gray-700">Ensamble, Commissioning y High Voltage Test – 6 bahías</td>
+              <td class="px-6 py-4"><span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">HV-GIS 220 kV</span></td>
+              <td class="px-6 py-4 font-body text-sm text-gray-600"><span class="fi fi-ar border border-gray-200 rounded-sm mr-1.5 text-base shadow-sm"></span>San Juan, Argentina</td>
+            </tr>
+            <tr class="project-row" data-country="chile" data-year="2021">
+              <td class="px-6 py-4 font-heading font-semibold text-sm text-sartori-navy-deep whitespace-nowrap">2021</td>
+              <td class="px-6 py-4 font-body text-sm text-gray-700">Montaje ampliación HV-GIS SE Nueva Pan de Azúcar – 2 bahías</td>
+              <td class="px-6 py-4"><span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">220 kV</span></td>
+              <td class="px-6 py-4 font-body text-sm text-gray-600"><span class="fi fi-cl border border-gray-200 rounded-sm mr-1.5 text-base shadow-sm"></span>La Serena, Chile</td>
+            </tr>
+            <tr class="project-row bg-gray-50/50" data-country="chile" data-year="2021">
+              <td class="px-6 py-4 font-heading font-semibold text-sm text-sartori-navy-deep whitespace-nowrap">2021</td>
+              <td class="px-6 py-4 font-body text-sm text-gray-700">Trabajos para ampliación TIE–IN HV-GIS SE Farellón – 1 Bahía</td>
+              <td class="px-6 py-4"><span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">220 kV</span></td>
+              <td class="px-6 py-4 font-body text-sm text-gray-600"><span class="fi fi-cl border border-gray-200 rounded-sm mr-1.5 text-base shadow-sm"></span>Antofagasta, Chile</td>
+            </tr>
+            <tr class="project-row" data-country="chile" data-year="2021">
+              <td class="px-6 py-4 font-heading font-semibold text-sm text-sartori-navy-deep whitespace-nowrap">2021</td>
+              <td class="px-6 py-4 font-body text-sm text-gray-700">Trabajos para ampliación TIE–IN HV-GIS SE Puri – 1 Bahía</td>
+              <td class="px-6 py-4"><span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">220 kV</span></td>
+              <td class="px-6 py-4 font-body text-sm text-gray-600"><span class="fi fi-cl border border-gray-200 rounded-sm mr-1.5 text-base shadow-sm"></span>Antofagasta, Chile</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Projects Cards (Mobile) -->
+      <div class="md:hidden space-y-4" data-animate>
+        <!-- Mobile Card 1 -->
+        <div class="project-card bg-white rounded-xl border border-gray-200 p-5 shadow-sm" data-country="chile" data-year="2024">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-heading font-bold text-sartori-navy-deep text-sm">2024/2025</span>
+            <span class="fi fi-cl border border-gray-200 rounded-sm text-base shadow-sm"></span>
+          </div>
+          <p class="font-body text-gray-700 text-sm mb-2">Montaje SE PS1 – 3 Bahías</p>
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">HV-GIS 110 kV</span>
+            <span class="font-body text-xs text-gray-400">Tocopilla, Chile</span>
+          </div>
+        </div>
+        <div class="project-card bg-white rounded-xl border border-gray-200 p-5 shadow-sm" data-country="chile" data-year="2024">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-heading font-bold text-sartori-navy-deep text-sm">2024/2025</span>
+            <span class="fi fi-cl border border-gray-200 rounded-sm text-base shadow-sm"></span>
+          </div>
+          <p class="font-body text-gray-700 text-sm mb-2">Montaje SE EB3 – 2 diámetros</p>
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">HV-GIS 220 kV</span>
+            <span class="font-body text-xs text-gray-400">Calama, Chile</span>
+          </div>
+        </div>
+        <div class="project-card bg-white rounded-xl border border-gray-200 p-5 shadow-sm" data-country="colombia" data-year="2023">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-heading font-bold text-sartori-navy-deep text-sm">2023/2024</span>
+            <span class="fi fi-co border border-gray-200 rounded-sm text-base shadow-sm"></span>
+          </div>
+          <p class="font-body text-gray-700 text-sm mb-2">Montaje SE Nueva Cuestecitas – 2 diámetros</p>
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">HV-GIS 220 kV</span>
+            <span class="font-body text-xs text-gray-400">Cuestecitas, Colombia</span>
+          </div>
+        </div>
+        <div class="project-card bg-white rounded-xl border border-gray-200 p-5 shadow-sm" data-country="argentina" data-year="2023">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-heading font-bold text-sartori-navy-deep text-sm">2023</span>
+            <span class="fi fi-ar border border-gray-200 rounded-sm text-base shadow-sm"></span>
+          </div>
+          <p class="font-body text-gray-700 text-sm mb-2">Commissioning y Puesta en Marcha SE San Luis Norte Wind Power</p>
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">132/33 kV</span>
+            <span class="font-body text-xs text-gray-400">San Luis, Argentina</span>
+          </div>
+        </div>
+        <div class="project-card bg-white rounded-xl border border-gray-200 p-5 shadow-sm" data-country="colombia" data-year="2023">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-heading font-bold text-sartori-navy-deep text-sm">2023</span>
+            <span class="fi fi-co border border-gray-200 rounded-sm text-base shadow-sm"></span>
+          </div>
+          <p class="font-body text-gray-700 text-sm mb-2">Montaje SE Río – HV-GIS 132 kV</p>
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">HV-GIS 132 kV</span>
+            <span class="font-body text-xs text-gray-400">Barranquilla, Colombia</span>
+          </div>
+        </div>
+        <div class="project-card bg-white rounded-xl border border-gray-200 p-5 shadow-sm" data-country="colombia" data-year="2023">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-heading font-bold text-sartori-navy-deep text-sm">2023</span>
+            <span class="fi fi-co border border-gray-200 rounded-sm text-base shadow-sm"></span>
+          </div>
+          <p class="font-body text-gray-700 text-sm mb-2">Montaje Ampliaciones SE Oasis <span class="text-sartori-teal">(Sin corte de servicio)</span></p>
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">HV-GIS 8 132 kV</span>
+            <span class="font-body text-xs text-gray-400">Barranquilla, Colombia</span>
+          </div>
+        </div>
+        <div class="project-card bg-white rounded-xl border border-gray-200 p-5 shadow-sm" data-country="chile" data-year="2022">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-heading font-bold text-sartori-navy-deep text-sm">2022</span>
+            <span class="fi fi-cl border border-gray-200 rounded-sm text-base shadow-sm"></span>
+          </div>
+          <p class="font-body text-gray-700 text-sm mb-2">Montaje Ampliación 2 bahías HV-GIS 220 kV</p>
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">HV-GIS 220 kV</span>
+            <span class="font-body text-xs text-gray-400">Nueva Maitencillo, Chile</span>
+          </div>
+        </div>
+        <div class="project-card bg-white rounded-xl border border-gray-200 p-5 shadow-sm" data-country="argentina" data-year="2021">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-heading font-bold text-sartori-navy-deep text-sm">2021</span>
+            <span class="fi fi-ar border border-gray-200 rounded-sm text-base shadow-sm"></span>
+          </div>
+          <p class="font-body text-gray-700 text-sm mb-2">Ensamble, Commissioning y High Voltage Test – 6 bahías</p>
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">HV-GIS 220 kV</span>
+            <span class="font-body text-xs text-gray-400">San Juan, Argentina</span>
+          </div>
+        </div>
+        <div class="project-card bg-white rounded-xl border border-gray-200 p-5 shadow-sm" data-country="chile" data-year="2021">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-heading font-bold text-sartori-navy-deep text-sm">2021</span>
+            <span class="fi fi-cl border border-gray-200 rounded-sm text-base shadow-sm"></span>
+          </div>
+          <p class="font-body text-gray-700 text-sm mb-2">Montaje ampliación HV-GIS SE Nueva Pan de Azúcar – 2 bahías</p>
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">220 kV</span>
+            <span class="font-body text-xs text-gray-400">La Serena, Chile</span>
+          </div>
+        </div>
+        <div class="project-card bg-white rounded-xl border border-gray-200 p-5 shadow-sm" data-country="chile" data-year="2021">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-heading font-bold text-sartori-navy-deep text-sm">2021</span>
+            <span class="fi fi-cl border border-gray-200 rounded-sm text-base shadow-sm"></span>
+          </div>
+          <p class="font-body text-gray-700 text-sm mb-2">Trabajos para ampliación TIE–IN HV-GIS SE Farellón – 1 Bahía</p>
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">220 kV</span>
+            <span class="font-body text-xs text-gray-400">Antofagasta, Chile</span>
+          </div>
+        </div>
+        <div class="project-card bg-white rounded-xl border border-gray-200 p-5 shadow-sm" data-country="chile" data-year="2021">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-heading font-bold text-sartori-navy-deep text-sm">2021</span>
+            <span class="fi fi-cl border border-gray-200 rounded-sm text-base shadow-sm"></span>
+          </div>
+          <p class="font-body text-gray-700 text-sm mb-2">Trabajos para ampliación TIE–IN HV-GIS SE Puri – 1 Bahía</p>
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-sartori-blue/10 text-sartori-blue font-heading font-semibold text-xs">220 kV</span>
+            <span class="font-body text-xs text-gray-400">Antofagasta, Chile</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-xl" data-animate>
+        <p class="font-body text-xs text-gray-400 leading-relaxed italic">
+          Los proyectos indicados corresponden a experiencia profesional acumulada por los integrantes de SARTORI Energy mediante participación directa en actividades de montaje, pruebas, puesta en servicio y soporte técnico en proyectos de infraestructura eléctrica ejecutados bajo diferentes esquemas contractuales.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       TEAM SECTION
+       ======================================== -->
+  <section id="equipo" class="py-20 lg:py-28 bg-sartori-navy-deep relative overflow-hidden">
+    <!-- Subtle team background -->
+    <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
+      <img src="../assets/images/09 - USAR PARA EQUIPOS-PERSONAL.jpg" alt="Sartori Team Background" class="w-full h-full object-cover">
+    </div>
+    <!-- Decorative grid -->
+    <div class="absolute inset-0 grid-overlay"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16" data-animate>
+        <p class="font-heading font-semibold text-sm text-sartori-amber tracking-[0.15em] uppercase mb-3">Nuestro Equipo</p>
+        <h2 class="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
+          Excelencia en Ingeniería
+        </h2>
+        <p class="mt-6 font-body text-lg text-white/60 leading-relaxed">
+          Nuestro mayor activo es la experiencia, la dedicación y la profesionalidad de nuestro personal.
+        </p>
+      </div>
+
+      <!-- Counter -->
+      <div class="text-center mb-16" data-animate>
+        <div class="inline-flex items-baseline gap-2">
+          <span id="years-counter" class="counter-value font-heading font-black text-7xl md:text-8xl text-sartori-amber">0</span>
+          <span class="font-heading font-bold text-2xl text-sartori-amber">+</span>
+        </div>
+        <p class="mt-2 font-heading font-semibold text-lg text-white/80">años de experiencia en el sector</p>
+      </div>
+
+      <!-- 3 Pillars -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-white/10 border-y border-white/10 mb-16">
+        <!-- Pilar 1 -->
+        <div data-animate class="relative group p-10 lg:p-14 hover:bg-white/[0.02] transition-colors duration-500">
+          <div class="absolute top-0 left-0 w-full h-0.5 bg-sartori-teal scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+          <h3 class="font-heading font-semibold text-xl text-white mb-4 tracking-wide">Ingenieros Altamente Cualificados</h3>
+          <p class="font-body text-white/50 leading-relaxed font-light">
+            Especialistas en puesta en servicio, supervisores de obra y expertos técnicos con amplia experiencia en proyectos de infraestructura de alta y extra alta tensión.
+          </p>
+        </div>
+        <!-- Pilar 2 -->
+        <div data-animate class="relative group p-10 lg:p-14 hover:bg-white/[0.02] transition-colors duration-500 delay-100">
+          <div class="absolute top-0 left-0 w-full h-0.5 bg-sartori-teal scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+          <h3 class="font-heading font-semibold text-xl text-white mb-4 tracking-wide">Capacitación por Fabricantes</h3>
+          <p class="font-body text-white/50 leading-relaxed font-light">
+            Capacitación técnica especializada impartida directamente por fabricantes líderes en el sector de subestaciones GIS y AIS.
+          </p>
+        </div>
+        <!-- Pilar 3 -->
+        <div data-animate class="relative group p-10 lg:p-14 hover:bg-white/[0.02] transition-colors duration-500 delay-200">
+          <div class="absolute top-0 left-0 w-full h-0.5 bg-sartori-teal scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+          <h3 class="font-heading font-semibold text-xl text-white mb-4 tracking-wide">Seguridad y Mejora Continua</h3>
+          <p class="font-body text-white/50 leading-relaxed font-light">
+            Cultura arraigada de seguridad operativa y mejora continua bajo las mejores prácticas internacionales.
+          </p>
+        </div>
+      </div>
+
+      <!-- Quote -->
+      <div data-animate class="max-w-3xl mx-auto text-center border-t border-white/10 pt-12">
+        <blockquote class="relative">
+          <svg class="w-8 h-8 mx-auto mb-4 text-sartori-amber/30" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <p class="font-body text-lg md:text-xl text-white/80 italic leading-relaxed">
+            "Creemos que la excelencia en ingeniería se basa en la experiencia, los conocimientos técnicos y un <strong class="text-sartori-amber font-bold not-italic">compromiso inquebrantable</strong> con el éxito de nuestros clientes."
+          </p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       MISSION & VISION
+       ======================================== -->
+  <section id="mision-vision" class="py-20 lg:py-28 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16" data-animate>
+        <p class="font-heading font-semibold text-sm text-sartori-teal tracking-[0.15em] uppercase mb-3">Identidad Institucional</p>
+        <h2 class="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-sartori-navy-deep tracking-tight">
+          Nuestro Norte Estratégico
+        </h2>
+      </div>
+
+      <!-- Two Columns -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <!-- Visión -->
+        <div data-animate class="bg-white rounded-2xl p-10 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+          <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-sartori-navy-deep mb-8">
+            <svg class="w-7 h-7 text-sartori-amber" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><path d="M2 12h20"/></svg>
+          </div>
+          <h3 class="font-heading font-bold text-2xl text-sartori-navy-deep mb-6">Nuestra Visión</h3>
+          <p class="font-body text-gray-500 leading-relaxed mb-4">
+            Consolidar a SARTORI Energy como un <strong class="text-sartori-navy-deep">referente global</strong> en la prestación de servicios de ingeniería especializados para infraestructuras eléctricas de alta y extra alta tensión.
+          </p>
+          <p class="font-body text-gray-500 leading-relaxed mb-4">
+            Aspiramos a ser el <strong class="text-sartori-navy-deep">socio estratégico de confianza</strong> para empresas de generación, transmisión y distribución de energía, contratistas EPC y clientes industriales.
+          </p>
+          <p class="font-body text-gray-500 leading-relaxed">
+            Contribuir al desarrollo de subestaciones, redes eléctricas y sistemas energéticos más eficientes, seguros y sostenibles, mediante la aplicación de conocimientos especializados, innovación continua y un firme compromiso con la calidad, la seguridad y el desempeño operativo.
+          </p>
+        </div>
+
+        <!-- Misión -->
+        <div data-animate class="bg-white rounded-2xl p-10 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 delay-200">
+          <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-sartori-navy-deep mb-8">
+            <svg class="w-7 h-7 text-sartori-amber" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <h3 class="font-heading font-bold text-2xl text-sartori-navy-deep mb-6">Nuestra Misión</h3>
+          <p class="font-body text-gray-500 leading-relaxed mb-4">
+            Proporcionar soluciones de ingeniería <strong class="text-sartori-navy-deep">altamente especializadas</strong> para subestaciones GIS y AIS de alta y extra alta tensión, ejecutando cada proyecto con excelencia técnica, precisión operativa y un firme compromiso con la calidad, la seguridad y la confiabilidad.
+          </p>
+          <p class="font-body text-gray-500 leading-relaxed mb-4">
+            Acompañamos a nuestros clientes durante <strong class="text-sartori-navy-deep">todo el ciclo de vida</strong> de sus activos, desde la instalación y puesta en servicio hasta el mantenimiento, la modernización y el soporte operativo de largo plazo.
+          </p>
+          <p class="font-body text-gray-500 leading-relaxed">
+            Mediante la aplicación de estándares internacionales, conocimientos técnicos avanzados y una cultura de mejora continua, generamos valor sostenible para nuestros clientes y contribuimos al desarrollo de redes eléctricas más seguras, eficientes y confiables.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom tagline -->
+      <div class="mt-12 text-center" data-animate>
+        <p class="font-heading font-bold text-sm tracking-[0.2em] uppercase text-sartori-navy/40">
+          Experiencia · Innovación · Compromiso
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       CONTACT SECTION
+       ======================================== -->
+  <section id="contacto" class="py-20 lg:py-28 bg-sartori-navy-deep relative overflow-hidden">
+    <div class="absolute inset-0 grid-overlay"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16" data-animate>
+        <p class="font-heading font-semibold text-sm text-sartori-amber tracking-[0.15em] uppercase mb-3">Contacto</p>
+        <h2 class="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
+          Hablemos de su Proyecto
+        </h2>
+        <p class="mt-6 font-body text-lg text-white/60 leading-relaxed">
+          Con sede en Florida y operación en toda América. Nuestras soluciones y servicios están disponibles para proyectos en todo el mundo.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <!-- Contact Form -->
+        <div data-animate>
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="name" class="block font-body text-sm text-white/60 mb-2">Nombre completo</label>
+                <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white font-body text-sm placeholder-white/30 focus:outline-none focus:border-sartori-amber/50 focus:ring-1 focus:ring-sartori-amber/50 transition-all" placeholder="Su nombre">
+              </div>
+              <div>
+                <label for="company" class="block font-body text-sm text-white/60 mb-2">Empresa</label>
+                <input type="text" id="company" name="company" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white font-body text-sm placeholder-white/30 focus:outline-none focus:border-sartori-amber/50 focus:ring-1 focus:ring-sartori-amber/50 transition-all" placeholder="Su empresa">
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="email" class="block font-body text-sm text-white/60 mb-2">Email</label>
+                <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white font-body text-sm placeholder-white/30 focus:outline-none focus:border-sartori-amber/50 focus:ring-1 focus:ring-sartori-amber/50 transition-all" placeholder="su@email.com">
+              </div>
+              <div>
+                <label for="phone" class="block font-body text-sm text-white/60 mb-2">Teléfono</label>
+                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white font-body text-sm placeholder-white/30 focus:outline-none focus:border-sartori-amber/50 focus:ring-1 focus:ring-sartori-amber/50 transition-all" placeholder="+1 (XXX) XXX-XXXX">
+              </div>
+            </div>
+            <div>
+              <label for="message" class="block font-body text-sm text-white/60 mb-2">Mensaje</label>
+              <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white font-body text-sm placeholder-white/30 focus:outline-none focus:border-sartori-amber/50 focus:ring-1 focus:ring-sartori-amber/50 transition-all resize-none" placeholder="Describa su proyecto o consulta..."></textarea>
+            </div>
+            <button type="submit" class="w-full sm:w-auto bg-sartori-amber hover:bg-sartori-amber-hover text-sartori-navy-deep font-heading font-bold text-sm px-10 py-4 rounded transition-all duration-300 hover:shadow-xl hover:shadow-sartori-amber/20 pulse-cta tracking-wide uppercase">
+              Enviar Consulta
+              <svg class="inline-block w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="space-y-6" data-animate>
+          <!-- HQ -->
+          <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-sartori-amber/10 text-sartori-amber flex-shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg>
+              </div>
+              <div>
+                <p class="font-heading font-bold text-sm text-white mb-1">HQ — Sartori Energy LLC</p>
+                <p class="font-body text-sm text-white/50">20900 NE 30th Ave, Aventura, Florida 33180, USA</p>
+              </div>
+            </div>
+          </div>
+          <!-- Regional -->
+          <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-sartori-amber/10 text-sartori-amber flex-shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <p class="font-heading font-bold text-sm text-white mb-1">Regional Branch Office</p>
+                <p class="font-body text-sm text-white/50">Av. Carballo 186 F#2, Rosario, S2000, Argentina</p>
+              </div>
+            </div>
+          </div>
+          <!-- Phone -->
+          <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-sartori-amber/10 text-sartori-amber flex-shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              </div>
+              <div>
+                <p class="font-heading font-bold text-sm text-white mb-1">Teléfono &amp; WhatsApp</p>
+                <a href="tel:+16262433324" class="font-body text-sm text-sartori-amber hover:text-sartori-amber-hover transition-colors">+1 (626) 243-3324</a>
+                <p class="font-body text-xs text-white/30 mt-1">Llamadas internacionales y WhatsApp Business</p>
+              </div>
+            </div>
+          </div>
+          <!-- Emails -->
+          <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-sartori-amber/10 text-sartori-amber flex-shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="space-y-2">
+                <div>
+                  <p class="font-heading font-bold text-xs text-white/60 uppercase tracking-wider">General</p>
+                  <a href="mailto:contact@sartori-energy.com" class="font-body text-sm text-sartori-amber hover:text-sartori-amber-hover transition-colors">contact@sartori-energy.com</a>
+                </div>
+                <div>
+                  <p class="font-heading font-bold text-xs text-white/60 uppercase tracking-wider">Desarrollo Comercial</p>
+                  <a href="mailto:nicolas.orlando@sartori-energy.com" class="font-body text-sm text-sartori-amber hover:text-sartori-amber-hover transition-colors">nicolas.orlando@sartori-energy.com</a>
+                </div>
+                <div>
+                  <p class="font-heading font-bold text-xs text-white/60 uppercase tracking-wider">Ingeniería y Construcción</p>
+                  <a href="mailto:danilo.sartori@sartori-energy.com" class="font-body text-sm text-sartori-amber hover:text-sartori-amber-hover transition-colors">danilo.sartori@sartori-energy.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer class="bg-black/40 backdrop-blur-sm border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <!-- Logo & Tagline -->
+        <div>
+          <a href="#inicio" class="flex items-center gap-3">
+            <img src="../assets/images/logo.png" alt="SARTORI Energy Logo" class="h-10 w-auto flex-shrink-0">
+            <div>
+              <span class="font-heading font-extrabold text-base text-white tracking-tight">SARTORI</span>
+              <span class="font-heading font-semibold text-xs text-sartori-teal-light tracking-[0.15em] uppercase block">ENERGY</span>
+            </div>
+          </a>
+          <p class="mt-4 font-body text-sm text-white/30 leading-relaxed max-w-xs">
+            Your energy project, our mission. Soluciones de ingeniería eléctrica para infraestructura de alta y extra alta tensión.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <p class="font-heading font-bold text-sm text-white mb-4 tracking-wide">Navegación</p>
+          <ul class="space-y-2">
+            <li><a href="#inicio" class="font-body text-sm text-white/40 hover:text-white transition-colors">Inicio</a></li>
+            <li><a href="#servicios" class="font-body text-sm text-white/40 hover:text-white transition-colors">Servicios</a></li>
+            <li><a href="#proyectos" class="font-body text-sm text-white/40 hover:text-white transition-colors">Proyectos</a></li>
+            <li><a href="#equipo" class="font-body text-sm text-white/40 hover:text-white transition-colors">Equipo</a></li>
+            <li><a href="#mision-vision" class="font-body text-sm text-white/40 hover:text-white transition-colors">Misión &amp; Visión</a></li>
+            <li><a href="#contacto" class="font-body text-sm text-white/40 hover:text-white transition-colors">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Summary -->
+        <div>
+          <p class="font-heading font-bold text-sm text-white mb-4 tracking-wide">Contacto</p>
+          <ul class="space-y-2">
+            <li><a href="mailto:contact@sartori-energy.com" class="font-body text-sm text-white/40 hover:text-sartori-amber transition-colors">contact@sartori-energy.com</a></li>
+            <li><a href="tel:+16262433324" class="font-body text-sm text-white/40 hover:text-sartori-amber transition-colors">+1 (626) 243-3324</a></li>
+            <li><span class="font-body text-sm text-white/30">Aventura, Florida, USA</span></li>
+          </ul>
+          <!-- Language Switcher -->
+          <div class="mt-6 flex items-center gap-3">
+            <span class="font-body text-xs text-white/60 font-bold"><span class="fi fi-es rounded-sm mr-1"></span> Español</span>
+            <a href="../index.html" class="font-body text-xs text-white/30 hover:text-white transition-colors"><span class="fi fi-gb rounded-sm mr-1 opacity-80 hover:opacity-100 transition-opacity"></span> English</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="font-body text-xs text-white/20">
+          &copy; 2025 Sartori Energy LLC. Todos los derechos reservados.
+        </p>
+        <p class="font-heading font-semibold text-xs text-white/10 tracking-[0.15em] uppercase">
+          Un equipo, un propósito: soluciones que transforman
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ========================================
+       JAVASCRIPT
+       ======================================== -->
+  <script>
+    // ---- Header Scroll Behavior ----
+    const header = document.getElementById('main-header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll > 50) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+      lastScroll = currentScroll;
+    }, { passive: true });
+
+
+    // ---- Mobile Menu Toggle ----
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconOpen = document.getElementById('menu-icon-open');
+    const menuIconClose = document.getElementById('menu-icon-close');
+    let menuOpen = false;
+
+    mobileMenuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('open');
+        menuIconOpen.classList.add('hidden');
+        menuIconClose.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      } else {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('open');
+        menuIconOpen.classList.remove('hidden');
+        menuIconClose.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('open');
+        menuIconOpen.classList.remove('hidden');
+        menuIconClose.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
+    });
+
+
+    // ---- Scroll-triggered Animations ----
+    const animateObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          animateObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('[data-animate]').forEach(el => {
+      animateObserver.observe(el);
+    });
+
+
+    // ---- Counter Animation ----
+    const counterEl = document.getElementById('years-counter');
+    let counterAnimated = false;
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !counterAnimated) {
+          counterAnimated = true;
+          animateCounter(counterEl, 20, 2000);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counterObserver.observe(counterEl);
+
+    function animateCounter(element, target, duration) {
+      let startTime = null;
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+        element.textContent = Math.floor(eased * target);
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+
+    // ---- Project Filter ----
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const projectRows = document.querySelectorAll('.project-row');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+
+        // Update active button
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Filter desktop rows
+        projectRows.forEach(row => {
+          if (filter === 'all' || row.dataset.country === filter) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+
+        // Filter mobile cards
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.dataset.country === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+
+        // ---- Hero Video Speed ----
+    const heroVideo = document.getElementById('hero-video');
+    if (heroVideo) {
+      heroVideo.playbackRate = 0.5; // cinematic slow motion
+    }
+
+        // ---- Service Modal Controller ----
+    const servicesData = {
+      '1': {
+        title: 'Montaje e Instalación de GIS y AIS',
+        image: '../assets/images/01 - USAR - PARA SERVICIOS.jpg',
+        desc: 'Proveemos servicios integrales en redes de transporte y distribución de energía como así también en distintos tipos de industrias. Especialistas con capacitaciones impartidas por fabricantes del sector en tecnologías de media, alta y extra alta tensión en distintos modelos.',
+        details: [
+          'Montaje de celdas y bahías GIS hasta 500 kV',
+          'Tendido y conexionado de cables de potencia y control',
+          'Tratamiento, recuperación e inyección de gas SF6 bajo estricto control ambiental',
+          'Ensayos de estanqueidad y calidad del gas (humedad, pureza)'
+        ]
+      },
+      '2': {
+        title: 'Auditorías Técnicas y Evaluación de Activos',
+        image: '../assets/images/03 - USAR PARA SERVICIOS.jpg',
+        desc: 'Diagnósticos detallados, análisis de riesgos, comparativas de rendimiento y recomendaciones estratégicas para mejorar la fiabilidad, la seguridad y la eficiencia operativa de instalaciones hidroeléctricas y subestaciones, en plena conformidad con las normas IEC, IEEE y ANSI.',
+        details: [
+          'Diagnósticos predictivos mediante termografía y descargas parciales',
+          'Análisis de cumplimiento normativo (IEC, IEEE, ANSI)',
+          'Evaluaciones de riesgo operativo y confiabilidad',
+          'Planes de modernización y optimización de mantenimiento (RCM)'
+        ]
+      },
+      '3': {
+        title: 'Puesta en Servicio y Energización',
+        image: '../assets/images/04 - USAR PARA SERVICIOS.jpg',
+        desc: 'Servicios integrales de puesta en servicio, pruebas y conexión a red para subestaciones de hasta 500 kV, incluyendo sistemas GIS de corriente alterna (CA) y corriente continua (CC) destinados a aplicaciones de metro y ferrocarril.',
+        details: [
+          'Pruebas funcionales de enclavamientos mecánicos y eléctricos',
+          'Energización controlada y monitoreada de transformadores y reactores',
+          'Pruebas de inyección secundaria y primaria',
+          'Pruebas de extremo a extremo (End-to-End) en enlaces de transmisión'
+        ]
+      },
+      '4': {
+        title: 'Sistemas de Protección y Control',
+        image: '../assets/images/06 - USAR PARA SERVICIOS.jpg',
+        desc: 'Instalación, configuración, pruebas y parametrización de sistemas de protección y control. Garantizamos una coordinación óptima de los relés, selectividad del sistema, gestión de fallos y la fiabilidad de la red.',
+        details: [
+          'Configuración y parametrización de relés de protección (SEL, ABB, Siemens, GE)',
+          'Pruebas de esquemas de teleprotección y disparo directo (DTT)',
+          'Integración de protocolos de automatización (IEC 61850, DNP3, Modbus)',
+          'Estudios de coordinación de protecciones y selectividad'
+        ]
+      },
+      '5': {
+        title: 'Pruebas y Verificación',
+        image: '../assets/images/07 - USAR PARA SERVICIOS.jpg',
+        desc: 'Servicios integrales de pruebas de campo para verificar la integridad dieléctrica y funcional de todos los equipos primarios y secundarios de la subestación.',
+        details: [
+          'Pruebas dieléctricas en alta tensión (Resonancia de CA)',
+          'Resistencia de aislamiento (Megger) y factor de potencia (Doble)',
+          'Pruebas de relación, polaridad y curva de saturación en TCs/TTs',
+          'Resistencia de contactos e intervalos de tiempo en interruptores'
+        ]
+      },
+      '6': {
+        title: 'Sistemas de Sincronización y Control',
+        image: '../assets/images/09 - USAR PARA SERVICIOS.jpg',
+        desc: 'Plataformas avanzadas de sincronización automática de interruptores mediante metodologías probadas para optimizar la estabilidad del sistema, maximizar la disponibilidad de los activos y garantizar una operación segura de la infraestructura.',
+        details: [
+          'Algoritmos avanzados de sincronización y control adaptativo',
+          'Optimización de la estabilidad transitoria del sistema de potencia',
+          'Calibración y pruebas de relés de sincronismo',
+          'Reducción del estrés dinámico en bobinados de generadores y transformadores'
+        ]
+      }
+    };
+
+    const modal = document.getElementById('service-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalActionBtn = document.getElementById('modal-action-btn');
+
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const serviceId = card.getAttribute('data-service-id');
+        const data = servicesData[serviceId];
+        if (!data) return;
+
+        // Populate modal data
+        modalImg.src = data.image;
+        modalImg.alt = data.title;
+        modalTitle.textContent = data.title;
+        
+        let bodyHtml = `<p class="text-gray-700 font-normal mb-6">${data.desc}</p>`;
+        bodyHtml += `<h4 class="font-heading font-bold text-sartori-navy-deep text-sm tracking-wide mb-3 uppercase">Alcance de Ingeniería de Campo</h4>`;
+        bodyHtml += `<ul class="space-y-2.5">`;
+        data.details.forEach(item => {
+          bodyHtml += `
+            <li class="flex items-start gap-2.5 text-sm text-gray-600">
+              <span class="text-sartori-teal font-bold mt-0.5">•</span>
+              <span>${item}</span>
+            </li>`;
+        });
+        bodyHtml += `</ul>`;
+        modalBody.innerHTML = bodyHtml;
+
+        console.log("Card clicked, opening modal for service ID:", serviceId);
+        // Explicitly remove all hidden/blocking classes to guarantee visibility
+        modal.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
+        modal.classList.add('modal-active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeModal() {
+      console.log("Closing modal");
+      modal.classList.remove('modal-active');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, 300);
+    }
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modalActionBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // ---- Smooth Scroll for anchor links ----
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const headerOffset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+
+  <!-- Service Detail Modal (Zoom-in expand effect) -->
+  <div id="service-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-sartori-navy-deep/85 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 pointer-events-none">
+    <!-- Modal Container -->
+    <div class="modal-container relative bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col max-h-[90vh]">
+      <!-- Close Button -->
+      <button id="modal-close-btn" class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-sartori-navy-deep/60 hover:bg-sartori-navy-deep text-white transition-colors" aria-label="Cerrar modal">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      
+      <!-- Modal Header Image -->
+      <div class="relative h-60 sm:h-72 overflow-hidden flex-shrink-0">
+        <img id="modal-img" src="" alt="Service Image" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-sartori-navy-deep/80 via-transparent to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <span id="modal-badge" class="inline-block px-3 py-1 bg-sartori-amber text-sartori-navy-deep font-heading font-extrabold text-xs uppercase tracking-wider rounded-md mb-2">Sartori Especialidad</span>
+          <h2 id="modal-title" class="font-heading font-black text-2xl sm:text-3xl text-white tracking-tight leading-tight"></h2>
+        </div>
+      </div>
+      
+      <!-- Modal Content Body -->
+      <div id="modal-body" class="p-6 sm:p-8 overflow-y-auto font-body text-gray-600 text-base leading-relaxed space-y-4">
+        <!-- filled dynamically by JS -->
+      </div>
+      
+      <!-- Modal Footer -->
+      <div class="p-6 bg-slate-50 border-t border-slate-100 flex justify-end flex-shrink-0">
+        <button id="modal-action-btn" class="bg-sartori-navy-deep hover:bg-sartori-navy text-white font-heading font-bold text-sm px-6 py-2.5 rounded transition-all shadow-md">
+          Volver a Servicios
+        </button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

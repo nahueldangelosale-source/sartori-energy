@@ -1,0 +1,13 @@
+{
+  "name": "sartori-energy-web",
+  "version": "1.0.0",
+  "description": "Sitio web corporativo de SARTORI ENERGY",
+  "main": "index.html",
+  "scripts": {
+    "build": "tailwindcss -i ./css/input.css -o ./css/styles.css --minify"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
