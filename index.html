@@ -245,6 +245,16 @@
     .counter-value {
       font-variant-numeric: tabular-nums;
     }
+
+    /* Mobile Touch Active Effects (Option B) */
+    .touch-card-active {
+      background-color: rgba(255, 255, 255, 0.03) !important;
+      transition: background-color 0.15s ease;
+    }
+    .touch-card-active .scale-x-0 {
+      transform: scaleX(1) !important;
+      transition: transform 0.25s ease;
+    }
   </style>
 </head>
 
@@ -417,28 +427,28 @@
     <div class="max-w-7xl mx-auto px-0">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-white/5">
         <!-- Pilar 1: Seguridad -->
-        <div data-animate class="flex flex-col p-8 group lg:hover:bg-white/[0.01] transition-all duration-300 relative overflow-hidden">
+        <div data-animate class="flex flex-col p-8 group lg:hover:bg-white/[0.01] touch-card transition-all duration-300 relative overflow-hidden">
           <div class="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-sartori-teal to-transparent scale-x-0 lg:group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
 
           <h3 class="font-heading font-extrabold text-white text-sm tracking-[0.15em] uppercase">SAFETY</h3>
           <p class="font-body text-xs text-white/50 mt-1">in every project</p>
         </div>
         <!-- Pilar 2: Precisión Técnica -->
-        <div data-animate class="flex flex-col p-8 group lg:hover:bg-white/[0.01] transition-all duration-300 relative overflow-hidden delay-100">
+        <div data-animate class="flex flex-col p-8 group lg:hover:bg-white/[0.01] touch-card transition-all duration-300 relative overflow-hidden delay-100">
           <div class="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-sartori-teal to-transparent scale-x-0 lg:group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
 
           <h3 class="font-heading font-extrabold text-white text-sm tracking-[0.15em] uppercase">TECHNICAL PRECISION</h3>
           <p class="font-body text-xs text-white/50 mt-1">in every detail</p>
         </div>
         <!-- Pilar 3: Eficiencia -->
-        <div data-animate class="flex flex-col p-8 group lg:hover:bg-white/[0.01] transition-all duration-300 relative overflow-hidden delay-200">
+        <div data-animate class="flex flex-col p-8 group lg:hover:bg-white/[0.01] touch-card transition-all duration-300 relative overflow-hidden delay-200">
           <div class="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-sartori-teal to-transparent scale-x-0 lg:group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
 
           <h3 class="font-heading font-extrabold text-white text-sm tracking-[0.15em] uppercase">EFFICIENCY</h3>
           <p class="font-body text-xs text-white/50 mt-1">that generates value</p>
         </div>
         <!-- Pilar 4: Experiencia Global -->
-        <div data-animate class="flex flex-col p-8 group lg:hover:bg-white/[0.01] transition-all duration-300 relative overflow-hidden delay-300">
+        <div data-animate class="flex flex-col p-8 group lg:hover:bg-white/[0.01] touch-card transition-all duration-300 relative overflow-hidden delay-300">
           <div class="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-sartori-teal to-transparent scale-x-0 lg:group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
 
           <h3 class="font-heading font-extrabold text-white text-sm tracking-[0.15em] uppercase">GLOBAL EXPERIENCE</h3>
@@ -822,7 +832,7 @@
       <!-- 3 Pillars -->
       <div class="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-white/10 border-y border-white/10 mb-16">
         <!-- Pilar 1 -->
-        <div data-animate class="relative group p-10 lg:p-14 lg:hover:bg-white/[0.02] transition-colors duration-500">
+        <div data-animate class="relative group p-10 lg:p-14 lg:hover:bg-white/[0.02] touch-card transition-colors duration-500">
           <div class="absolute top-0 left-0 w-full h-0.5 bg-sartori-teal scale-x-0 lg:group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
           <h3 class="font-heading font-semibold text-xl text-white mb-4 tracking-wide">Highly Qualified Engineers</h3>
@@ -831,7 +841,7 @@
           </p>
         </div>
         <!-- Pilar 2 -->
-        <div data-animate class="relative group p-10 lg:p-14 lg:hover:bg-white/[0.02] transition-colors duration-500 delay-100">
+        <div data-animate class="relative group p-10 lg:p-14 lg:hover:bg-white/[0.02] touch-card transition-colors duration-500 delay-100">
           <div class="absolute top-0 left-0 w-full h-0.5 bg-sartori-teal scale-x-0 lg:group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
           <h3 class="font-heading font-semibold text-xl text-white mb-4 tracking-wide">Training by Leading Mfrs.</h3>
@@ -840,7 +850,7 @@
           </p>
         </div>
         <!-- Pilar 3 -->
-        <div data-animate class="relative group p-10 lg:p-14 lg:hover:bg-white/[0.02] transition-colors duration-500 delay-200">
+        <div data-animate class="relative group p-10 lg:p-14 lg:hover:bg-white/[0.02] touch-card transition-colors duration-500 delay-200">
           <div class="absolute top-0 left-0 w-full h-0.5 bg-sartori-teal scale-x-0 lg:group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
           <h3 class="font-heading font-semibold text-xl text-white mb-4 tracking-wide">Safety Culture & Improvement</h3>
