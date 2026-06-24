@@ -1445,6 +1445,24 @@
       if (e.target === modal) closeModal();
     });
 
+    
+    // ---- Mobile Touch Cards (Trust Bar & Team) (Option B) ----
+    document.querySelectorAll('.touch-card').forEach(card => {
+      card.addEventListener('touchstart', () => {
+        card.classList.add('touch-card-active');
+      }, { passive: true });
+      
+      card.addEventListener('touchend', () => {
+        setTimeout(() => {
+          card.classList.remove('touch-card-active');
+        }, 150);
+      }, { passive: true });
+      
+      card.addEventListener('touchcancel', () => {
+        card.classList.remove('touch-card-active');
+      }, { passive: true });
+    });
+
     // ---- Smooth Scroll for anchor links ----
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
