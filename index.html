@@ -246,7 +246,7 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* Mobile Touch Active Effects (Option B) */
+        /* Mobile Touch Active Effects (Option B) */
     .touch-card-active {
       background-color: rgba(42, 123, 136, 0.12) !important;
       transition: background-color 0.1s ease;
@@ -255,6 +255,19 @@
       --tw-scale-x: 1 !important;
       transform: scaleX(1) !important;
       transition: transform 0.2s ease;
+    }
+
+    /* Hover styles for desktop / hover-capable devices (Option B) */
+    @media (hover: hover) {
+      .touch-card:hover {
+        background-color: rgba(42, 123, 136, 0.12) !important;
+        transition: background-color 0.15s ease;
+      }
+      .touch-card:hover .scale-x-0 {
+        --tw-scale-x: 1 !important;
+        transform: scaleX(1) !important;
+        transition: transform 0.25s ease;
+      }
     }
   </style>
 </head>
@@ -1386,7 +1399,7 @@
     });
 
     
-        // ---- Mobile Touch & Desktop Hover Cards (Trust Bar & Team) ----
+            // ---- Mobile Touch Cards (Trust Bar & Team) (Option B) ----
     document.querySelectorAll('.touch-card').forEach(card => {
       // Touch events (for mobile devices)
       card.addEventListener('touchstart', () => {
@@ -1402,11 +1415,7 @@
       card.addEventListener('touchcancel', () => {
         card.classList.remove('touch-card-active');
       }, { passive: true });
-
-      // Mouse events (for desktop hover, even when browser is resized)
-      card.addEventListener('mouseenter', () => {
-        card.classList.add('touch-card-active');
-      });
+    });
       
       card.addEventListener('mouseleave', () => {
         card.classList.remove('touch-card-active');
