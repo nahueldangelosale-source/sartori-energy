@@ -370,7 +370,7 @@
       <video id="hero-video" autoplay loop muted playsinline class="w-full h-full object-cover opacity-[0.85]">
         <source src="../assets/videos/VIDEO FAST MOTION FRONT WEB.mp4" type="video/mp4">
       </video>
-      <div class="absolute inset-0 bg-black/80 bg-gradient-to-r from-sartori-navy-deep via-sartori-navy-deep/80 to-black/50"></div>
+      <div class="absolute inset-0 bg-sartori-navy-deep/20 bg-gradient-to-r from-sartori-navy-deep/40 via-transparent to-black/20"></div>
     </div>
     <!-- Grid Overlay -->
     <div class="absolute inset-0 grid-overlay opacity-25 z-0"></div>
@@ -381,17 +381,17 @@
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
       <div class="max-w-5xl">
         <div class="flex flex-row items-stretch gap-4 lg:gap-8">
-          <!-- Tall Side Logo (Desktop) -->
-          <div class="flex-shrink-0 animate-logo-premium" style="display: flex; flex-direction: column; width: clamp(150px, 25vw, 350px); justify-content: space-between;">
+          <!-- Tall Side Logo (Desktop only) -->
+          <div class="hidden md:flex flex-shrink-0 animate-logo-premium" style="flex-direction: column; width: clamp(150px, 25vw, 350px); justify-content: space-between;">
              <img src="../assets/images/logo.png" alt="SARTORI Energy Icon" style="width: 100%; height: 100%; object-fit: contain; object-position: center right; opacity: 0.6; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)) blur(0.5px); transition: all 0.5s ease;">
           </div>
           
           <!-- Text Column -->
           <div class="flex flex-col justify-between py-2">
             <!-- H1 -->
-            <div class="animate-tracking-expand mb-2 md:mb-0" style="display: flex; flex-direction: row; align-items: baseline; gap: 1rem;">
-              <span class="font-heading font-extrabold text-white uppercase" style="font-size: clamp(2rem, 5vw, 4.5rem); line-height: 0.9; text-shadow: 0 10px 30px rgba(0,7,45,0.85); margin-left: -4px;">SARTORI</span>
-              <span class="font-heading font-extrabold text-sartori-teal-light uppercase" style="font-size: clamp(2rem, 5vw, 4.5rem); line-height: 0.9; text-shadow: 0 5px 15px rgba(0,7,45,0.85);">ENERGY</span>
+            <div class="animate-tracking-expand mb-2 md:mb-0" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1rem;">
+              <span class="font-heading font-extrabold text-white uppercase" style="font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 0.9; text-shadow: 0 10px 30px rgba(0,7,45,0.85); margin-left: -4px;">SARTORI</span>
+              <span class="font-heading font-extrabold text-sartori-teal-light uppercase" style="font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 0.9; text-shadow: 0 5px 15px rgba(0,7,45,0.85);">ENERGY</span>
             </div>
 
             <!-- Tagline -->
@@ -537,9 +537,7 @@
           <div class="relative h-48 overflow-hidden">
             <img src="../assets/images/01 - USAR PARA  SERVICIOS.jpg" alt="GIS and AIS Assembly and Installation" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
-            <div class="absolute bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            </div>
+            
           </div>
           <div class="p-6 lg:p-8 flex-grow flex flex-col">
             <h3 class="font-heading font-bold text-xl text-sartori-navy-deep mb-4">Montaje e Instalación de GIS y AIS</h3>
@@ -554,9 +552,7 @@
           <div class="relative h-48 overflow-hidden">
             <img src="../assets/images/03 - USAR PARA SERVICIOS.jpg" alt="Technical Audits and Asset Assessments" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
-            <div class="absolute bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
-            </div>
+            
           </div>
           <div class="p-6 lg:p-8 flex-grow flex flex-col">
             <h3 class="font-heading font-bold text-xl text-sartori-navy-deep mb-4">Auditorías Técnicas y Evaluación de Activos</h3>
@@ -571,9 +567,7 @@
           <div class="relative h-48 overflow-hidden">
             <img src="../assets/images/04 - USAR PARA SERVICIOS.jpg" alt="Commissioning and Energization" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
-            <div class="absolute bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            </div>
+            
           </div>
           <div class="p-6 lg:p-8 flex-grow flex flex-col">
             <h3 class="font-heading font-bold text-xl text-sartori-navy-deep mb-4">Puesta en Servicio y Energización</h3>
@@ -588,9 +582,7 @@
           <div class="relative h-48 overflow-hidden">
             <img src="../assets/images/06 - USAR PARA SERVICIOS.jpg" alt="Protection and Control Systems" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
-            <div class="absolute bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
+            
           </div>
           <div class="p-6 lg:p-8 flex-grow flex flex-col">
             <h3 class="font-heading font-bold text-xl text-sartori-navy-deep mb-4">Sistemas de Protección y Control</h3>
@@ -605,9 +597,7 @@
           <div class="relative h-48 overflow-hidden">
             <img src="../assets/images/07 - USAR PARA SERVICIOS.jpg" alt="Testing and Verification" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
-            <div class="absolute bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            </div>
+            
           </div>
           <div class="p-6 lg:p-8 flex-grow flex flex-col">
             <h3 class="font-heading font-bold text-xl text-sartori-navy-deep mb-4">Pruebas y Verificación</h3>
@@ -622,9 +612,7 @@
           <div class="relative h-48 overflow-hidden">
             <img src="../assets/images/control-system.png?v=2" alt="Synchronization and Control Systems" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" style="object-position: 50% 15%;">
             <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
-            <div class="absolute bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
-            </div>
+            
           </div>
           <div class="p-6 lg:p-8 flex-grow flex flex-col">
             <h3 class="font-heading font-bold text-xl text-sartori-navy-deep mb-4">Sistemas de Sincronización y Control</h3>
