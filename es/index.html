@@ -132,6 +132,16 @@
       animation: fadeIn 0.8s ease-out forwards;
     }
 
+    /* Premium Logo Fade-In */
+    @keyframes blurFadeIn {
+      0% { opacity: 0; filter: blur(10px) brightness(1.5); transform: scale(0.95); }
+      100% { opacity: 0.95; filter: blur(0px) brightness(1) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5)); transform: scale(1); }
+    }
+
+    .animate-logo-premium {
+      animation: blurFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
     /* Scroll-triggered animations */
     [data-animate] {
       opacity: 0;
@@ -156,10 +166,11 @@
 
     /* Header scroll state */
     .header-scrolled {
-      background-color: rgba(0, 7, 45, 0.95);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background-color: rgba(0, 7, 45, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     /* Service card hover */
@@ -189,8 +200,8 @@
     }
 
     .filter-btn.active {
-      background-color: #F59E0B;
-      color: #00072D;
+      background-color: #2A7B88;
+      color: #FFFFFF;
       font-weight: 700;
     }
 
@@ -308,8 +319,8 @@
             <a href="../index.html" class="text-white/50 hover:text-white font-body text-sm transition-colors duration-200"><span class="fi fi-gb rounded-sm mr-1 opacity-80 hover:opacity-100 transition-opacity"></span> EN</a>
           </div>
           <!-- CTA -->
-          <a href="#contacto" class="bg-sartori-amber hover:bg-sartori-amber-hover text-sartori-navy-deep font-heading font-bold text-sm px-6 py-2.5 rounded transition-all duration-300 hover:shadow-lg hover:shadow-sartori-amber/25 pulse-cta">
-            Contactar
+          <a href="#contacto" style="background: linear-gradient(90deg, #f0a500 0%, #d99000 100%); box-shadow: 0 0 15px rgba(240, 165, 0, 0.4); border: 1px solid rgba(255,255,255,0.3);" class="text-sartori-navy-deep font-heading font-extrabold uppercase text-sm px-7 py-2.5 rounded transition-all duration-300 transform hover:-translate-y-0.5 hover:brightness-110" onmouseover="this.style.boxShadow='0 0 25px rgba(240, 165, 0, 0.7)'" onmouseout="this.style.boxShadow='0 0 15px rgba(240, 165, 0, 0.4)'">
+            CONTACTAR
           </a>
         </div>
 
@@ -340,7 +351,7 @@
         <a href="#proyectos" class="mobile-link text-white font-heading font-semibold text-2xl">Proyectos</a>
         <a href="#equipo" class="mobile-link text-white font-heading font-semibold text-2xl">Equipo</a>
         <a href="#mision-vision" class="mobile-link text-white font-heading font-semibold text-2xl">Misión &amp; Visión</a>
-        <a href="#contacto" class="bg-sartori-amber text-sartori-navy-deep font-heading font-bold text-lg px-8 py-3 rounded mt-4">Contactar</a>
+        <a href="#contacto" style="background: linear-gradient(90deg, #f0a500 0%, #d99000 100%); box-shadow: 0 0 15px rgba(240, 165, 0, 0.4); border: 1px solid rgba(255,255,255,0.3);" class="text-sartori-navy-deep font-heading font-extrabold uppercase text-lg px-10 py-3 rounded mt-4 transition-all duration-300 hover:brightness-110" onmouseover="this.style.boxShadow='0 0 25px rgba(240, 165, 0, 0.7)'" onmouseout="this.style.boxShadow='0 0 15px rgba(240, 165, 0, 0.4)'">CONTACTAR</a>
         <div class="flex items-center gap-4 mt-4">
           <span class="text-white font-body font-bold"><span class="fi fi-es rounded-sm mr-1"></span> ES</span>
           <a href="../index.html" class="text-white/50 hover:text-white font-body"><span class="fi fi-gb rounded-sm mr-1 opacity-80 hover:opacity-100 transition-opacity"></span> EN</a>
@@ -356,67 +367,76 @@
   <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
     <!-- Video Background -->
     <div class="absolute inset-0 z-0 bg-sartori-navy-deep">
-      <video id="hero-video" autoplay loop muted playsinline preload="none" poster="../assets/images/16 - USAR PARA FONDO GENERICO.jpg" class="w-full h-full object-cover opacity-25">
+      <video id="hero-video" autoplay loop muted playsinline class="w-full h-full object-cover opacity-[0.85]">
         <source src="../assets/videos/VIDEO FAST MOTION FRONT WEB.mp4" type="video/mp4">
       </video>
-      <div class="absolute inset-0 bg-gradient-to-r from-sartori-navy-deep via-sartori-navy-deep/75 to-transparent"></div>
+      <div class="absolute inset-0 bg-black/80 bg-gradient-to-r from-sartori-navy-deep via-sartori-navy-deep/80 to-black/50"></div>
     </div>
     <!-- Grid Overlay -->
     <div class="absolute inset-0 grid-overlay opacity-25 z-0"></div>
 
-    <!-- Large Logo Watermark on the Left (Pure White Watermark behind text, z-0) -->
-    <!-- Large Logo Watermark on the Left (Pure White Watermark behind text, z-0) -->
-    <div class="absolute left-[6%] lg:left-[8%] top-[28%] w-[220px] lg:w-[280px] hidden md:block pointer-events-none z-0 select-none animate-watermark">
-      <img src="../assets/images/logo.png" alt="Sartori Logo Watermark" class="w-full h-auto" style="filter: brightness(0) invert(1);">
-    </div>
+
 
     <!-- Content -->
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
-      <div class="max-w-3xl">
-        <!-- H1 -->
-        <!-- H1 -->
-        <h1 class="font-heading font-black text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl text-white tracking-tighter animate-tracking-expand whitespace-nowrap" style="text-shadow: 0 10px 30px rgba(0,7,45,0.85);">
-          SARTORI <span class="text-sartori-amber font-light">ENERGY</span>
-        </h1>
+      <div class="max-w-5xl">
+        <div class="flex flex-row items-stretch gap-4 lg:gap-8">
+          <!-- Tall Side Logo (Desktop) -->
+          <div class="flex-shrink-0 animate-logo-premium" style="display: flex; flex-direction: column; width: clamp(150px, 25vw, 350px); justify-content: space-between;">
+             <img src="../assets/images/logo.png" alt="SARTORI Energy Icon" style="width: 100%; height: 100%; object-fit: contain; object-position: center right; opacity: 0.6; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)) blur(0.5px); transition: all 0.5s ease;">
+          </div>
+          
+          <!-- Text Column -->
+          <div class="flex flex-col justify-between py-2">
+            <!-- H1 -->
+            <div class="animate-tracking-expand mb-2 md:mb-0" style="display: flex; flex-direction: row; align-items: baseline; gap: 1rem;">
+              <span class="font-heading font-extrabold text-white uppercase" style="font-size: clamp(2rem, 5vw, 4.5rem); line-height: 0.9; text-shadow: 0 10px 30px rgba(0,7,45,0.85); margin-left: -4px;">SARTORI</span>
+              <span class="font-heading font-extrabold text-sartori-teal-light uppercase" style="font-size: clamp(2rem, 5vw, 4.5rem); line-height: 0.9; text-shadow: 0 5px 15px rgba(0,7,45,0.85);">ENERGY</span>
+            </div>
 
-        <!-- Tagline -->
-        <p class="mt-5 font-serif italic text-lg md:text-xl lg:text-2xl text-sartori-teal-light tracking-wide animate-fade-in-delayed" style="text-shadow: 0 2px 10px rgba(0,7,45,0.6);">
-          Su proyecto de energía, <span class="text-sartori-amber font-semibold">nuestra misión</span>
-        </p>
+            <!-- Tagline -->
+            <p class="mt-3 md:mt-5 font-heading font-semibold text-lg md:text-xl lg:text-2xl text-sartori-teal-light tracking-wide animate-fade-in-delayed" style="text-shadow: 0 2px 10px rgba(0,7,45,0.6);">
+              Su proyecto de energía, <span class="text-white font-semibold">nuestra misión</span>
+            </p>
 
-        <!-- Subtitle -->
-        <p class="mt-8 font-body text-lg md:text-xl text-white/85 leading-relaxed max-w-2xl animate-fade-up delay-200">
-          Soluciones especializadas de ingeniería eléctrica para todo el espectro en infraestructura de estaciones transformadoras de <strong class="text-white font-bold">alta y extra alta tensión.</strong>
-        </p>
+            <!-- Subtitle -->
+            <p class="mt-6 md:mt-8 font-body text-lg md:text-xl text-white leading-relaxed max-w-2xl animate-fade-up delay-200" style="text-shadow: 0 4px 12px rgba(0,0,0,0.8);">
+              Soluciones especializadas de ingeniería eléctrica para todo el espectro en infraestructura de estaciones transformadoras de <strong class="text-white font-bold">alta y extra alta tensión.</strong>
+            </p>
 
-        <p class="mt-4 font-body text-base text-white/65 leading-relaxed max-w-2xl animate-fade-up delay-300">
-          Ejecución técnica rigurosa y compromiso con los más altos estándares internacionales para proyectos complejos de transmisión de energía y subestaciones.
-        </p>
+            <!-- Micro-text -->
+            <div class="mt-4 animate-fade-up delay-300 inline-block">
+              <p class="font-body text-[1.05rem] font-medium tracking-wide leading-relaxed text-white" style="background: rgba(0, 23, 48, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-left: 4px solid #2A7B88; border-radius: 0 12px 12px 0; padding: 1rem 1.25rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);">
+                Ejecución técnica rigurosa y compromiso con los más altos estándares internacionales para proyectos complejos de transmisión de energía y subestaciones.
+              </p>
+            </div>
 
-        <!-- Technology Badges -->
-        <div class="mt-8 flex flex-wrap gap-3 animate-fade-up delay-400">
-          <a href="#servicios" class="inline-flex items-center gap-2 px-5 py-2.5 border border-sartori-amber/30 bg-sartori-amber/5 text-sartori-amber font-heading font-semibold text-sm rounded-full backdrop-blur-sm hover:scale-105 hover:bg-sartori-amber/15 hover:border-sartori-amber/60 hover:shadow-[0_0_20px_rgba(245,158,11,0.25)] transition-all duration-300 group/badge">
-            <svg class="w-4 h-4 text-sartori-amber group-hover/badge:rotate-12 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Tecnología GIS</span>
-            <span class="text-xs text-sartori-amber/60 font-body font-normal group-hover/badge:text-sartori-amber/90 transition-colors">(Gas-Insulated Switchgear)</span>
-          </a>
-          <a href="#servicios" class="inline-flex items-center gap-2 px-5 py-2.5 border border-sartori-teal/30 bg-sartori-teal/5 text-sartori-teal-light font-heading font-semibold text-sm rounded-full backdrop-blur-sm hover:scale-105 hover:bg-sartori-teal/15 hover:border-sartori-teal/60 hover:shadow-[0_0_20px_rgba(42,123,136,0.25)] transition-all duration-300 group/badge2">
-            <svg class="w-4 h-4 text-sartori-teal-light group-hover/badge2:rotate-12 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Tecnología AIS</span>
-            <span class="text-xs text-sartori-teal-light/60 font-body font-normal group-hover/badge2:text-sartori-teal-light/90 transition-colors">(Air-Insulated Switchgear)</span>
-          </a>
+            <!-- Technology Badges -->
+            <div class="mt-8 flex flex-wrap gap-4 animate-fade-up delay-400">
+              <a href="#servicios" class="inline-flex items-center gap-2 px-6 py-3 border border-sartori-teal/50 text-sartori-teal font-heading font-bold text-base rounded-full backdrop-blur-sm hover:scale-105 hover:bg-sartori-teal/20 hover:border-sartori-teal hover:text-white transition-all duration-300 group/badge" style="background-color: rgba(10, 17, 40, 0.7);">
+                <svg class="w-5 h-5 text-sartori-teal group-hover/badge:text-white transition-colors group-hover/badge:rotate-12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Tecnología GIS</span>
+                <span class="text-xs text-sartori-teal/70 group-hover/badge:text-white/80 font-body font-normal transition-colors">(Gas-Insulated Switchgear)</span>
+              </a>
+              <a href="#servicios" class="inline-flex items-center gap-2 px-6 py-3 border border-sartori-teal/50 text-sartori-teal font-heading font-bold text-base rounded-full backdrop-blur-sm hover:scale-105 hover:bg-sartori-teal/20 hover:border-sartori-teal hover:text-white transition-all duration-300 group/badge2" style="background-color: rgba(10, 17, 40, 0.7);">
+                <svg class="w-5 h-5 text-sartori-teal group-hover/badge2:text-white transition-colors group-hover/badge2:rotate-12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Tecnología AIS</span>
+                <span class="text-xs text-sartori-teal/70 group-hover/badge2:text-white/80 font-body font-normal transition-colors">(Air-Insulated Switchgear)</span>
+              </a>
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-10 animate-fade-up delay-600">
+              <a href="#servicios" class="inline-flex items-center gap-2 text-white font-heading font-bold text-sm px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 group relative overflow-hidden uppercase tracking-wider" style="background: linear-gradient(135deg, #1f2937 0%, #0a1128 100%); border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.7);">
+                <span class="relative z-10 flex items-center gap-3">
+                  Conocer Capacidades Técnicas
+                  <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <div class="absolute inset-0 bg-gradient-to-r from-sartori-teal/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0 pointer-events-none"></div>
+              </a>
+            </div>
+          </div>
         </div>
-
-        <!-- Micro-text -->
-        <p class="mt-6 text-white/40 font-body text-sm tracking-wide animate-fade-up delay-500">
-          Proveedor especializado y de confianza para empresas de servicios públicos, contratistas EPC y fabricantes líderes de tecnología eléctrica.
-        </p>
-
-        <!-- CTA -->
-        <a href="#servicios" class="mt-10 inline-flex items-center gap-2 bg-sartori-amber hover:bg-sartori-amber-hover text-sartori-navy-deep font-heading font-bold text-sm px-8 py-4 rounded transition-all duration-300 hover:shadow-xl hover:shadow-sartori-amber/20 animate-fade-up delay-600 pulse-cta tracking-wide uppercase">
-          Conocer Capacidades Técnicas
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
       </div>
     </div>
 
@@ -476,18 +496,19 @@
   <!-- ========================================
        QUOTE SECTION
        ======================================== -->
-  <section class="relative bg-gradient-to-r from-sartori-navy-deep via-sartori-navy to-sartori-navy-deep py-16 lg:py-20 overflow-hidden">
-    <!-- Background Texture -->
-    <div class="absolute inset-0 z-0 opacity-15">
-      <img src="../assets/images/16 - USAR PARA FONDO GENERICO.jpg" alt="Background Texture" class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-sartori-navy-deep/40"></div>
-    </div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
+  <section class="relative py-16 lg:py-24 overflow-hidden bg-sartori-navy-deep">
+    <!-- Background Video -->
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+      <source src="../assets/videos/video-tubos.mp4" type="video/mp4">
+    </video>
+    <!-- Background Texture Overlay -->
+    <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(0, 23, 48, 0.8) 0%, rgba(0, 42, 92, 0.6) 50%, rgba(0, 23, 48, 0.8) 100%);"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-animate>
       <svg class="w-10 h-10 mx-auto mb-6 text-sartori-amber/40" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
       <p data-animate class="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-white leading-tight italic delay-100">
         Conectamos energía.<br>
         Potenciamos soluciones.<br>
-        <span class="text-sartori-amber">Construimos el futuro.</span>
+        <span class="text-sartori-teal-light font-bold drop-shadow-md">Construimos el futuro.</span>
       </p>
       <div class="mt-6 w-16 h-0.5 bg-sartori-amber/40 mx-auto"></div>
     </div>
@@ -501,14 +522,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16" data-animate>
-        <p class="font-heading font-semibold text-sm text-sartori-teal tracking-[0.15em] uppercase mb-3">Nuestros Servicios</p>
+      <div class="text-center max-w-4xl mx-auto mb-16" data-animate>
+        <p class="font-heading font-bold text-lg md:text-xl text-sartori-teal tracking-[0.2em] uppercase mb-4">Nuestros Servicios</p>
         <h2 class="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-sartori-navy-deep tracking-tight">
-          Servicios Especializados
+          Especialistas en GIS y AIS
         </h2>
-        <p class="mt-6 font-body text-lg text-gray-500 leading-relaxed">
-          Instalación, montaje, ensayos, puesta en servicio y asistencia in situ para sistemas GIS y AIS en subestaciones de alta y extra alta tensión en todo el continente americano.
-        </p>
       </div>
 
       <!-- Services Grid -->
@@ -517,9 +535,9 @@
         <!-- Card 1: Montaje e Instalación -->
         <div data-animate data-service-id="1" class="service-card cursor-pointer bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98] group transition-all duration-300 flex flex-col h-full">
           <div class="relative h-48 overflow-hidden">
-            <img src="../assets/images/01 - USAR - PARA SERVICIOS.jpg" alt="GIS and AIS Assembly and Installation" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+            <img src="../assets/images/01 - USAR PARA  SERVICIOS.jpg" alt="GIS and AIS Assembly and Installation" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
-            <div class="absolute top-4 left-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
+            <div class="absolute bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             </div>
           </div>
@@ -536,7 +554,7 @@
           <div class="relative h-48 overflow-hidden">
             <img src="../assets/images/03 - USAR PARA SERVICIOS.jpg" alt="Technical Audits and Asset Assessments" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
-            <div class="absolute top-4 left-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
+            <div class="absolute bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
             </div>
           </div>
@@ -553,7 +571,7 @@
           <div class="relative h-48 overflow-hidden">
             <img src="../assets/images/04 - USAR PARA SERVICIOS.jpg" alt="Commissioning and Energization" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
-            <div class="absolute top-4 left-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
+            <div class="absolute bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             </div>
           </div>
@@ -570,7 +588,7 @@
           <div class="relative h-48 overflow-hidden">
             <img src="../assets/images/06 - USAR PARA SERVICIOS.jpg" alt="Protection and Control Systems" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
-            <div class="absolute top-4 left-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
+            <div class="absolute bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
           </div>
@@ -587,7 +605,7 @@
           <div class="relative h-48 overflow-hidden">
             <img src="../assets/images/07 - USAR PARA SERVICIOS.jpg" alt="Testing and Verification" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
-            <div class="absolute top-4 left-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
+            <div class="absolute bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             </div>
           </div>
@@ -602,9 +620,9 @@
         <!-- Card 6: Sincronización y Control -->
         <div data-animate data-service-id="6" class="service-card cursor-pointer bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98] group transition-all duration-300 flex flex-col h-full delay-500">
           <div class="relative h-48 overflow-hidden">
-            <img src="../assets/images/09 - USAR PARA SERVICIOS.jpg" alt="Synchronization and Control Systems" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+            <img src="../assets/images/control-system.png?v=2" alt="Synchronization and Control Systems" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" style="object-position: 50% 15%;">
             <div class="absolute inset-0 bg-sartori-navy-deep/20 group-hover:bg-sartori-navy-deep/10 transition-colors"></div>
-            <div class="absolute top-4 left-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
+            <div class="absolute bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-xl bg-white/95 text-sartori-teal shadow-md">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
             </div>
           </div>
@@ -628,18 +646,15 @@
 
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-12" data-animate>
-        <p class="font-heading font-semibold text-sm text-sartori-teal tracking-[0.15em] uppercase mb-3">Portfolio</p>
+        <p class="font-heading font-bold text-lg md:text-xl text-sartori-teal tracking-[0.2em] uppercase mb-4">Portafolio</p>
         <h2 class="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-sartori-navy-deep tracking-tight">
-          Proyectos Ejecutados
+          Proyectos Completados
         </h2>
-        <p class="mt-6 font-body text-lg text-gray-500 leading-relaxed">
-          Soluciones eléctricas integrales en subestaciones y sistemas de alta y extra alta tensión con los más altos estándares de calidad, seguridad y eficiencia.
-        </p>
       </div>
 
       <!-- Filter Buttons -->
       <div class="flex flex-wrap justify-center gap-2 mb-10" data-animate>
-        <button data-filter="all" class="filter-btn active px-5 py-2 rounded-full font-heading font-semibold text-sm border border-sartori-navy/20 text-sartori-navy-deep hover:bg-sartori-amber hover:text-sartori-navy-deep hover:border-sartori-amber transition-all">
+        <button data-filter="all" class="filter-btn active px-5 py-2 rounded-full font-heading font-semibold text-sm border border-sartori-navy/20 text-sartori-navy-deep hover:bg-gray-200 hover:border-gray-300 transition-all">
           Todos
         </button>
         <button data-filter="chile" class="filter-btn px-5 py-2 rounded-full font-heading font-semibold text-sm border border-sartori-navy/20 text-sartori-navy-deep hover:bg-sartori-amber hover:text-sartori-navy-deep hover:border-sartori-amber transition-all">
@@ -885,23 +900,20 @@
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16" data-animate>
-        <p class="font-heading font-semibold text-sm text-sartori-amber tracking-[0.15em] uppercase mb-3">Nuestro Equipo</p>
+      <div class="text-center max-w-4xl mx-auto mb-16" data-animate>
+        <p class="font-heading font-bold text-lg md:text-xl text-sartori-teal tracking-[0.2em] uppercase mb-4">Nuestro Equipo</p>
         <h2 class="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
-          Excelencia en Ingeniería
+          Ingenieros en el corazón de nuestras operaciones
         </h2>
-        <p class="mt-6 font-body text-lg text-white/60 leading-relaxed">
-          Nuestro mayor activo es la experiencia, la dedicación y la profesionalidad de nuestro personal.
-        </p>
       </div>
 
       <!-- Counter -->
       <div class="text-center mb-16" data-animate>
         <div class="inline-flex items-baseline gap-2">
-          <span id="years-counter" class="counter-value font-heading font-black text-7xl md:text-8xl text-sartori-amber">0</span>
-          <span class="font-heading font-bold text-2xl text-sartori-amber">+</span>
+          <span id="years-counter" class="counter-value font-heading font-black text-7xl md:text-8xl text-sartori-teal">0</span>
+          <span class="font-heading font-bold text-2xl text-sartori-teal">+</span>
         </div>
-        <p class="mt-2 font-heading font-semibold text-lg text-white/80">años de experiencia en el sector</p>
+        <p class="mt-2 font-heading font-semibold text-lg text-white/80">años de experiencia en la industria</p>
       </div>
 
       <!-- 3 Pillars -->
@@ -938,9 +950,9 @@
       <!-- Quote -->
       <div data-animate class="max-w-3xl mx-auto text-center border-t border-white/10 pt-12">
         <blockquote class="relative">
-          <svg class="w-8 h-8 mx-auto mb-4 text-sartori-amber/30" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <svg class="w-8 h-8 mx-auto mb-4 text-white/30" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
           <p class="font-body text-lg md:text-xl text-white/80 italic leading-relaxed">
-            "Creemos que la excelencia en ingeniería se basa en la experiencia, los conocimientos técnicos y un <strong class="text-sartori-amber font-bold not-italic">compromiso inquebrantable</strong> con el éxito de nuestros clientes."
+            "Creemos que la excelencia en ingeniería se basa en la experiencia, los conocimientos técnicos y un <strong class="text-sartori-teal font-bold not-italic">compromiso inquebrantable</strong> con el éxito de nuestros clientes."
           </p>
         </blockquote>
       </div>
@@ -1018,10 +1030,10 @@
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16" data-animate>
-        <p class="font-heading font-semibold text-sm text-sartori-amber tracking-[0.15em] uppercase mb-3">Contacto</p>
+      <div class="text-center max-w-4xl mx-auto mb-16" data-animate>
+        <p class="font-heading font-bold text-lg md:text-xl text-sartori-teal tracking-[0.2em] uppercase mb-4">Contacto</p>
         <h2 class="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
-          Hablemos de su Proyecto
+          Comuníquese con Sartori Energy
         </h2>
         <p class="mt-6 font-body text-lg text-white/60 leading-relaxed">
           Con sede en Florida y operación en toda América. Nuestras soluciones y servicios están disponibles para proyectos en todo el mundo.
@@ -1035,28 +1047,28 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label for="name" class="block font-body text-sm text-white/60 mb-2">Nombre completo</label>
-                <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white font-body text-sm placeholder-white/30 focus:outline-none focus:border-sartori-amber/50 focus:ring-1 focus:ring-sartori-amber/50 transition-all" placeholder="Su nombre">
+                <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white font-body text-sm placeholder-white/30 focus:outline-none focus:border-sartori-teal/50 focus:ring-1 focus:ring-sartori-teal/50 transition-all" placeholder="Su nombre">
               </div>
               <div>
                 <label for="company" class="block font-body text-sm text-white/60 mb-2">Empresa</label>
-                <input type="text" id="company" name="company" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white font-body text-sm placeholder-white/30 focus:outline-none focus:border-sartori-amber/50 focus:ring-1 focus:ring-sartori-amber/50 transition-all" placeholder="Su empresa">
+                <input type="text" id="company" name="company" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white font-body text-sm placeholder-white/30 focus:outline-none focus:border-sartori-teal/50 focus:ring-1 focus:ring-sartori-teal/50 transition-all" placeholder="Su empresa">
               </div>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label for="email" class="block font-body text-sm text-white/60 mb-2">Email</label>
-                <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white font-body text-sm placeholder-white/30 focus:outline-none focus:border-sartori-amber/50 focus:ring-1 focus:ring-sartori-amber/50 transition-all" placeholder="su@email.com">
+                <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white font-body text-sm placeholder-white/30 focus:outline-none focus:border-sartori-teal/50 focus:ring-1 focus:ring-sartori-teal/50 transition-all" placeholder="su@email.com">
               </div>
               <div>
                 <label for="phone" class="block font-body text-sm text-white/60 mb-2">Teléfono</label>
-                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white font-body text-sm placeholder-white/30 focus:outline-none focus:border-sartori-amber/50 focus:ring-1 focus:ring-sartori-amber/50 transition-all" placeholder="+1 (XXX) XXX-XXXX">
+                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white font-body text-sm placeholder-white/30 focus:outline-none focus:border-sartori-teal/50 focus:ring-1 focus:ring-sartori-teal/50 transition-all" placeholder="+1 (XXX) XXX-XXXX">
               </div>
             </div>
             <div>
               <label for="message" class="block font-body text-sm text-white/60 mb-2">Mensaje</label>
-              <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white font-body text-sm placeholder-white/30 focus:outline-none focus:border-sartori-amber/50 focus:ring-1 focus:ring-sartori-amber/50 transition-all resize-none" placeholder="Describa su proyecto o consulta..."></textarea>
+              <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white font-body text-sm placeholder-white/30 focus:outline-none focus:border-sartori-teal/50 focus:ring-1 focus:ring-sartori-teal/50 transition-all resize-none" placeholder="Describa su proyecto o consulta..."></textarea>
             </div>
-            <button type="submit" class="w-full sm:w-auto bg-sartori-amber hover:bg-sartori-amber-hover text-sartori-navy-deep font-heading font-bold text-sm px-10 py-4 rounded transition-all duration-300 hover:shadow-xl hover:shadow-sartori-amber/20 pulse-cta tracking-wide uppercase">
+            <button type="submit" class="w-full sm:w-auto bg-sartori-teal hover:bg-sartori-teal-light text-white font-heading font-bold text-sm px-10 py-4 rounded transition-all duration-300 hover:shadow-xl hover:shadow-sartori-teal/20 pulse-cta tracking-wide uppercase">
               Enviar Consulta
               <svg class="inline-block w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
@@ -1068,7 +1080,7 @@
           <!-- HQ -->
           <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
             <div class="flex items-start gap-4">
-              <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-sartori-amber/10 text-sartori-amber flex-shrink-0 mt-0.5">
+              <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-sartori-teal/10 text-sartori-teal flex-shrink-0 mt-0.5">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg>
               </div>
               <div>
@@ -1080,7 +1092,7 @@
           <!-- Regional -->
           <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
             <div class="flex items-start gap-4">
-              <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-sartori-amber/10 text-sartori-amber flex-shrink-0 mt-0.5">
+              <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-sartori-teal/10 text-sartori-teal flex-shrink-0 mt-0.5">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <div>
@@ -1089,37 +1101,17 @@
               </div>
             </div>
           </div>
-          <!-- Phone -->
-          <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-sartori-amber/10 text-sartori-amber flex-shrink-0 mt-0.5">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-              </div>
-              <div>
-                <p class="font-heading font-bold text-sm text-white mb-1">Teléfono &amp; WhatsApp</p>
-                <a href="tel:+16262433324" class="font-body text-sm text-sartori-amber hover:text-sartori-amber-hover transition-colors">+1 (626) 243-3324</a>
-                <p class="font-body text-xs text-white/30 mt-1">Llamadas internacionales y WhatsApp Business</p>
-              </div>
-            </div>
-          </div>
+
           <!-- Emails -->
           <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
             <div class="flex items-start gap-4">
-              <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-sartori-amber/10 text-sartori-amber flex-shrink-0 mt-0.5">
+              <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-sartori-teal/10 text-sartori-teal flex-shrink-0 mt-0.5">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               </div>
               <div class="space-y-2">
                 <div>
                   <p class="font-heading font-bold text-xs text-white/60 uppercase tracking-wider">General</p>
-                  <a href="mailto:contact@sartori-energy.com" class="font-body text-sm text-sartori-amber hover:text-sartori-amber-hover transition-colors">contact@sartori-energy.com</a>
-                </div>
-                <div>
-                  <p class="font-heading font-bold text-xs text-white/60 uppercase tracking-wider">Desarrollo Comercial</p>
-                  <a href="mailto:nicolas.orlando@sartori-energy.com" class="font-body text-sm text-sartori-amber hover:text-sartori-amber-hover transition-colors">nicolas.orlando@sartori-energy.com</a>
-                </div>
-                <div>
-                  <p class="font-heading font-bold text-xs text-white/60 uppercase tracking-wider">Ingeniería y Construcción</p>
-                  <a href="mailto:danilo.sartori@sartori-energy.com" class="font-body text-sm text-sartori-amber hover:text-sartori-amber-hover transition-colors">danilo.sartori@sartori-energy.com</a>
+                  <a href="mailto:contact@sartori-energy.com" class="font-body text-sm text-sartori-teal hover:text-white transition-colors">contact@sartori-energy.com</a>
                 </div>
               </div>
             </div>
@@ -1146,7 +1138,7 @@
             </div>
           </a>
           <p class="mt-4 font-body text-sm text-white/30 leading-relaxed max-w-xs">
-            Your energy project, our mission. Soluciones de ingeniería eléctrica para infraestructura de alta y extra alta tensión.
+            Su proyecto de energía, nuestra misión. Soluciones de ingeniería eléctrica para infraestructura de alta y extra alta tensión.
           </p>
         </div>
 
@@ -1393,7 +1385,7 @@
       },
       '6': {
         title: 'Sistemas de Sincronización y Control',
-        image: '../assets/images/09 - USAR PARA SERVICIOS.jpg',
+        image: '../assets/images/control-system.png?v=2',
         desc: 'Plataformas avanzadas de sincronización automática de interruptores mediante metodologías probadas para optimizar la estabilidad del sistema, maximizar la disponibilidad de los activos y garantizar una operación segura de la infraestructura.',
         details: [
           'Algoritmos avanzados de sincronización y control adaptativo',
